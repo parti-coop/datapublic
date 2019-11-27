@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title 빠띠 데이터퍼블릭
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %header
+      .container
+        .py-5.text-center
+          %h2 빠띠 데이터 퍼블릭
+          %p.lead 설명
+
+    %main
+      .container
+        .row
+          .col-md-4.order-md-2.mb-4
+            %h4 최신 데이터
+
+          .col-md-8.order-md-1
+            = yield
+
+    %footer.my-5.pt-5.text-muted.text-center.text-small
+      %p.mb-1
+        = link_to '더 민주적인 세상, 빠띠 쿱', 'https://parti.coop', target: :blank
+      %ul.list-inline
+        %li.list-inline-item
+          %a{:href => "#"} 문의
+        %li.list-inline-item
+          %a{:href => "#"} 이용약관
+        %li.list-inline-item
+          %a{:href => "#"} 개인정보취급방침
