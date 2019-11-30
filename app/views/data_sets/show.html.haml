@@ -1,0 +1,8 @@
+%h2.pb-2= @data_set.title
+
+.p-4.border.bg-white
+  = raw @data_set.body
+
+.py-4
+  = link_to '데이터셋 살펴보기', data_sets_path, class: "btn btn-secondary"
+  = link_to '데이터 보완하기', edit_data_set_path(@data_set), class: "btn btn-secondary"

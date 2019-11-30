@@ -13,6 +13,9 @@ ko:
         email: 이메일
         password: 비밀번호
         password_confirmation: 비밀번호 확인
+      data_set:
+        title: 제목
+        body: 내용
 
   date:
     abbr_day_names:

@@ -41,6 +41,10 @@ gem 'cocoon'
 gem 'browser'
 gem 'rails_sortable'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-onmount'
+end
+
 # pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'

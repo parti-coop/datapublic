@@ -2,6 +2,7 @@
 //= require activestorage
 //= require jquery3
 //= require jquery_ujs
+//= require onmount
 //= require popper
 //= require bootstrap
 //= require bootstrap3-typeahead.min
@@ -13,3 +14,7 @@
 //= require summernote/summernote-bs4.min
 //= require summernote-slowalk
 //= require turbolinks
+
+$(document).on('ready show.bs closed.bs load page:change turbolinks:load', function () { $.onmount() });
+$(document).on('turbolinks:before-cache', function () { $.onmount.teardown() });
+$.onmount('.js-tooltip', function () { $(this).tooltip() });
