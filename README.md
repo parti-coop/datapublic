@@ -1,24 +1,6 @@
-# README
+# About
+DataPublic is raw data archives for important social issues and major public organization. We believe the importance of correct and public data to make people trust each other. And trust is the cornerstone to collaborate and decentralize power.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Roadmap
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://github.com/parti-coop/datapublic/wiki
