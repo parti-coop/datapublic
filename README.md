@@ -4,3 +4,6 @@ DataPublic is raw data archives for important social issues and major public org
 ## Roadmap
 
 https://github.com/parti-coop/datapublic/wiki
+
+### How to Contribute
+
