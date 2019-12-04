@@ -1,0 +1,22 @@
+language: ruby
+rvm:
+  - 2.6.5
+if: tag =~ /^v[0-9]+\.[0-9]+\.[0-9]+$/
+before_install:
+  - rvm use @global
+  - gem uninstall bundler -x
+  - gem install bundler --version=2.0.1 -f
+  - bundler --version
+script:
+  - echo "skipping tests"
+deploy:
+  - provider: elasticbeanstalk
+    skip_cleanup: true
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    region: ap-northeast-2
+    app: "datapublic"
+    env: "Datapublic-env"
+    bucket_name: "elasticbeanstalk-ap-northeast-2-580666805237"
+    on:
+      all_branches: true
