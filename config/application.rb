@@ -18,5 +18,6 @@ module Datapublic
 
     config.time_zone = 'Asia/Seoul'
     config.i18n.default_locale = :ko
+    config.i18n.available_locales = [:en, :ko]
   end
 end
