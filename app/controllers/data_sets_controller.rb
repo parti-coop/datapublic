@@ -35,6 +35,8 @@ class DataSetsController < ApplicationController
   end
 
   def destroy
+    @data_set.destroy
+    redirect_to data_sets_url
   end
 
   private

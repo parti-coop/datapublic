@@ -4,5 +4,10 @@
   = raw @data_set.body
 
 .py-4
-  = link_to '데이터셋 살펴보기', data_sets_path, class: "btn btn-secondary"
-  = link_to '데이터 보완하기', edit_data_set_path(@data_set), class: "btn btn-secondary"
+  .d-flex.justify-content-between
+    %div
+      - if user_signed_in?
+        = link_to '데이터 보완하기', edit_data_set_path(@data_set), class: "btn btn-outline-secondary"
+    %div
+      - if user_signed_in? && @data_set.user == current_user
+        = link_to '데이터 삭제하기', @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
