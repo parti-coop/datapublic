@@ -46,6 +46,9 @@ class DataSetsController < ApplicationController
     end
 
     def data_set_params
-      params.require(:data_set).permit(:title, :body)
+      params.require(:data_set).permit(
+        :title, :body,
+        links_attributes: [:id, :title, :body, :url, :_destroy]
+      )
     end
 end

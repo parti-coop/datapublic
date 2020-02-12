@@ -16,6 +16,10 @@ ko:
       data_set:
         title: 제목
         body: 내용
+      link:
+        title: 제목
+        body: 요약
+        url: URL
 
   date:
     abbr_day_names:

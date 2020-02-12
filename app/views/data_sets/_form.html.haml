@@ -1,4 +1,12 @@
 = simple_form_for @data_set do |f|
   = f.input :title
   = f.input :body, as: :summernote
+
+  #data-set-links.pb-4
+    %h4.text-muted 관련 항목
+    #links-items
+      = f.simple_fields_for :links do |link|
+        = render 'link_fields', f: link
+    = link_to_add_association '항목 추가', f, :links, class: "btn btn-outline-secondary", data: {"association-insertion-node" => "#links-items", "association-insertion-method" => "append"}
+
   = f.submit data: { disable_with: "Please wait..." }, class: 'btn btn-primary'
