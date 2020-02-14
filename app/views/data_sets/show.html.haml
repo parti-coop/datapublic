@@ -3,6 +3,10 @@
 .my-4.p-4.border.bg-white
   = raw @data_set.body
 
+.py-2
+  - @data_set.tags.each do |tag|
+    = link_to tag.name, tag_path(tag), class: 'btn btn-outline-secondary btn-sm'
+
 .my-4
   %h4.text-muted= t('related_info')
   .list-group
@@ -15,7 +19,7 @@
   .d-flex.justify-content-between
     %div
       - if user_signed_in?
-        = link_to '데이터 보완하기', edit_data_set_path(@data_set), class: "btn btn-outline-secondary"
+        = link_to t('edit'), edit_data_set_path(@data_set), class: "btn btn-outline-secondary"
     %div
       - if user_signed_in? && @data_set.user == current_user
-        = link_to '데이터 삭제하기', @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
+        = link_to t('destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"

@@ -3,12 +3,4 @@
 .row
   - @data_sets.each do |data_set|
     .col-6
-      .mb-4.card
-        .card-header #ABC #DEF
-        .card-body
-          %h5.card-title= data_set.title
-          %h6.card-subtitle.mb-2.text-muted
-
-          %p.card-text
-            %small= strip_tags(data_set.body).truncate(150)
-          = link_to "데이터셋 보기", data_set, class: "btn btn-primary"
+      = render data_set

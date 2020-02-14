@@ -1,0 +1,10 @@
+.pb-2
+  %h2
+    = @tag.name
+
+%section.py-2
+  %h5.text-muted= t('data_sets')
+  .row
+    - @data_sets.each do |data_set|
+      .col-6
+        = render data_set
