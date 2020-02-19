@@ -1,4 +1,4 @@
-$(document).ready(function() {
+var initializeSummernote = function() {
   $('[data-provider="summernote"]').each(function() {
     $(this).summernote({
       toolbar: [
@@ -83,4 +83,4 @@ $(document).ready(function() {
     }
 
   });
-});
+}
