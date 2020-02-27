@@ -16,6 +16,10 @@ ko:
       data_set:
         title: 제목
         body: 내용
+        url: 원데이터
+        api_url: 관련 API
+        tags: 태그
+        links: 관련정보
       link:
         title: 제목
         body: 요약
@@ -28,6 +32,8 @@ ko:
   main:
     title: 원데이터
   link:
+    edit: 수정
+    destroy: 삭제
     sign_in: 로그인
     sign_out: 로그아웃
 

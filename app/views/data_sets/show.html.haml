@@ -3,23 +3,34 @@
 .my-4.p-4.border.bg-white
   = raw @data_set.body
 
-.py-2
+.my-4
+  %h5= DataSet.human_attribute_name("url")
+  = link_to @data_set.url, @data_set.url, target: "_blank", class: "text-dark"
+
+- if @data_set.api_url.present?
+  .my-4
+    %h5= DataSet.human_attribute_name("api_url")
+    = link_to @data_set.api_url, @data_set.api_url, target: "_blank", class: "text-dark"
+
+.my-4
+  %h5= DataSet.human_attribute_name("tags")
   - @data_set.tags.each do |tag|
     = link_to "##{tag.name}", tag_path(tag), class: "text-dark"
 
-.my-4
-  %h4.text-muted= t('related_info')
-  .list-group
-    - @data_set.links.each do |link|
-      = link_to link.url, class: "list-group-item" do
-        %h5.mb-1= link.title
-        %p.text-muted.mb-1= link.body
+- if @data_set.links.any?
+  .my-4
+    %h5= DataSet.human_attribute_name("links")
+    .list-group
+      - @data_set.links.each do |link|
+        = link_to link.url, class: "list-group-item" do
+          %h5.mb-1= link.title
+          %p.text-muted.mb-1= link.body
 
 .my-4
   .d-flex.justify-content-between
     %div
       - if user_signed_in?
-        = link_to t('edit'), edit_data_set_path(@data_set), class: "btn btn-outline-secondary"
+        = link_to t('link.edit'), edit_data_set_path(@data_set), class: "btn btn-outline-secondary"
     %div
       - if user_signed_in? && @data_set.user == current_user
-        = link_to t('destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
+        = link_to t('link.destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"

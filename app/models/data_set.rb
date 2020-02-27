@@ -8,6 +8,7 @@ class DataSet < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
+  validates :url, presence: true
 
   default_scope { order("updated_at desc") }
 end
