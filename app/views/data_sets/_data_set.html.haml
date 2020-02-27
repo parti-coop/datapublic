@@ -1,10 +1,10 @@
 .mb-4.card
   .card-body
     %h5.card-title= link_to data_set.title, data_set
-    %h6.card-subtitle.mb-2.text-muted
 
     %p.card-text
       %small= strip_tags(data_set.body).truncate(150)
 
-    - data_set.tags.each do |tag|
-      = link_to tag.name, tag_path(tag), class: "btn btn-outline-secondary btn-sm"
+    %div
+      - data_set.tags.each do |tag|
+        = link_to "##{tag.name}", tag_path(tag), class: "text-dark"

@@ -21,6 +21,16 @@ ko:
         body: 요약
         url: URL
 
+  site_name: 데이터퍼블릭.kr
+  menu:
+    data_sets: 원데이터
+    fact_checks: 팩트체크
+  main:
+    title: 원데이터
+  link:
+    sign_in: 로그인
+    sign_out: 로그아웃
+
   date:
     abbr_day_names:
     - 일
@@ -217,5 +227,3 @@ ko:
       long: "%Y년 %m월 %d일, %H시 %M분 %S초 %Z"
       short: "%y/%m/%d %H:%M"
     pm: 오후
-  main:
-    title: 데이터 셋

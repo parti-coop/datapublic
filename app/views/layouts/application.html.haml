@@ -8,21 +8,24 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body.bg-light
-    %header
-      .container
-        .py-5.text-center
-          %span.display-3.bg-dark.text-white.rounded.px-3.font-weight-bold D
-          %h2.mt-4
-            %span.font-weight-bold 데이터:퍼블릭
-            %small.font-weight-light .kr
-          %p.p-2.lead.text-muted
-            사회적으로 이슈가 된 사안들이나 주요 기관이 보유한 원 데이터들을 아카이브합니다.
-          %p.p-2
-            = link_to '데이터셋 살펴보기', data_sets_path, class: 'btn btn-primary'
-            - if user_signed_in?
-              = link_to '데이터셋 추가하기', new_data_set_path, class: 'btn btn-secondary'
-            - else
-              = link_to '에디터 신청하기', new_user_registration_path, class: 'btn btn-secondary'
+    = render "header"
+
+    - if current_page?(root_url)
+      %header
+        .container
+          .py-5.text-center
+            %span.display-3.bg-dark.text-white.rounded.px-3.font-weight-bold D
+            %h2.mt-4
+              %span.font-weight-bold 데이터:퍼블릭
+              %small.font-weight-light .kr
+            %p.p-2.lead.text-muted
+              사회적으로 이슈가 된 사안들의 원본 데이터들을 출처와 함께 모읍니다.
+            %p.p-2
+              = link_to '데이터 살펴보기', data_sets_path, class: 'btn btn-primary'
+              - if user_signed_in?
+                = link_to '데이터 추가하기', new_data_set_path, class: 'btn btn-secondary'
+              - else
+                = link_to '에디터 등록하기', new_user_registration_path, class: 'btn btn-secondary'
 
     %main
       .container
@@ -30,9 +33,11 @@
           .col-md-4.order-md-2.mb-4
             %h4.text-muted 최신 데이터
             .mb-4.list-group
-              - DataSet.limit(10).each do |data_set|
+              - DataSet.limit(20).each do |data_set|
                 = link_to data_set, class: "list-group-item list-group-item-action" do
                   %h6.my-0= data_set.title
+                  - data_set.tags.each do |tag|
+                    %span.badge.badge-secondary= tag
 
           .col-md-8.order-md-1
             = yield
