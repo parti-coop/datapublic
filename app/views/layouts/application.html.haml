@@ -37,7 +37,7 @@
                 = link_to data_set, class: "list-group-item list-group-item-action" do
                   %h6.my-0= data_set.title
                   - data_set.tags.each do |tag|
-                    %span.badge.badge-secondary= tag
+                    %small= "##{tag}"
 
           .col-md-8.order-md-1
             = yield
