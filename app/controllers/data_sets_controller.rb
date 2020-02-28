@@ -2,7 +2,7 @@ class DataSetsController < ApplicationController
   before_action :set_data_set, only: [:show, :edit, :update, :destroy]
 
   def index
-    @data_sets = DataSet.all
+    @data_sets = DataSet.page(params[:page])
   end
 
   def new
