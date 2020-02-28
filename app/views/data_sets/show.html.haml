@@ -32,5 +32,5 @@
       - if user_signed_in?
         = link_to t('link.edit'), edit_data_set_path(@data_set), class: "btn btn-outline-secondary"
     %div
-      - if user_signed_in? && @data_set.user == current_user
+      - if user_signed_in? && (@data_set.user == current_user || current_user.admin?)
         = link_to t('link.destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
