@@ -5,12 +5,12 @@
 
 .my-4
   %h5.text-muted= DataSet.human_attribute_name("url")
-  = link_to @data_set.url, @data_set.url, target: "_blank", class: "text-dark"
+  = text_field_tag "url", @data_set.url, class: "form-control"
 
 - if @data_set.api_url.present?
   .my-4
     %h5.text-muted= DataSet.human_attribute_name("api_url")
-    = link_to @data_set.api_url, @data_set.api_url, target: "_blank", class: "text-dark"
+    = text_field_tag "api_url", @data_set.api_url, class: "form-control"
 
 .my-4
   %h5.text-muted= DataSet.human_attribute_name("tags")

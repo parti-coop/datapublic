@@ -1,7 +1,9 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:charset => "utf-8"}
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}
     %title 데이터퍼블릭
     = csrf_meta_tags
     = csp_meta_tag
@@ -30,7 +32,9 @@
     %main.py-2
       .container
         .row
-          .col-md-4.order-md-2.mb-4
+          .col-md-8
+            = yield
+          .col-md-4.mb-4
             %h4.text-muted 최신 데이터
             .mb-4.list-group
               - DataSet.limit(20).each do |data_set|
@@ -39,8 +43,7 @@
                   - data_set.tags.each do |tag|
                     %small= "##{tag}"
 
-          .col-md-8.order-md-1
-            = yield
+
 
     %footer.my-5.pt-5.text-muted.text-center.text-small
       %p.mb-1
