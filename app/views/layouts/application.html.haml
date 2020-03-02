@@ -43,7 +43,13 @@
                   - data_set.tags.each do |tag|
                     %small= "##{tag}"
 
-
+            .mb-4
+              .border.p-3
+                .media
+                  = image_tag 'parti_symbol', width: 80, class: "mr-3"
+                  .media-body
+                    %h5.mt-0= link_to '데이터 활동가 커뮤니티', "https://democracy-activists.parti.xyz/p/datapublic", target: "_blank", class: "text-dark"
+                    = link_to "데이터로 더 투명하고 신뢰할 수 있는 세상을 만듭니다", "https://democracy-activists.parti.xyz/p/datapublic", target: "_blank", class: "text-dark"
 
     %footer.my-5.pt-5.text-muted.text-center.text-small
       %p.mb-1

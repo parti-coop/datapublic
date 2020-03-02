@@ -20,6 +20,7 @@ ko:
         api_url: 관련 API
         tags: 태그
         links: 관련정보
+        comments: 댓글
       link:
         title: 제목
         body: 요약

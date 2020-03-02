@@ -34,3 +34,10 @@
     %div
       - if user_signed_in? && (@data_set.user == current_user || current_user.admin?)
         = link_to t('link.destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
+
+%hr
+
+.my-4
+  %h5.text-muted= DataSet.human_attribute_name("comments")
+  .my-4.p-4.border.bg-white
+    = link_to "데이터에 관한 의견 남기기", "https://democracy-activists.parti.xyz/p/datapublic", target: "_blank", class: "text-dark"
