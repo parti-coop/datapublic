@@ -2,8 +2,8 @@
   %h5.my-0.mr-md-auto.font-weight-normal= link_to t("site_name"), root_path, class: "text-dark"
   %nav.my-2.my-md-0.mr-md-3
     = link_to t("menu.data_sets"), data_sets_path, class: "p-2 text-dark"
-    = link_to t("menu.fact_checks"), '#', onclick: "alert('준비 중입니다');", class: "p-2 text-dark"
-  - if user_signed_in?
-    = link_to t("link.sign_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary"
-  - else
-    = link_to t("link.sign_in"), new_user_session_path, class: "btn btn-outline-primary"
+    = link_to t("menu.fact_checks"), '#', onclick: "alert('준비 중입니다');", class: "p-2 text-dark mr-3"
+    - if user_signed_in?
+      = link_to t("link.sign_out"), destroy_user_session_path, method: :delete, class: "btn btn-outline-primary btn-sm"
+    - else
+      = link_to t("link.sign_in"), new_user_session_path, class: "btn btn-outline-primary btn-sm"

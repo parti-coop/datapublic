@@ -18,16 +18,10 @@
           .py-5.text-center
             %span.display-3.bg-dark.text-white.rounded.px-3.font-weight-bold D
             %h2.mt-4
-              %span.font-weight-bold 데이터:퍼블릭
+              %span.font-weight-bold 데이터퍼블릭
               %small.font-weight-light .kr
             %p.p-2.lead.text-muted
               사회적으로 이슈가 된 사안들의 원본 데이터들을 출처와 함께 모읍니다.
-            %p.p-2
-              = link_to '데이터 살펴보기', data_sets_path, class: 'btn btn-primary'
-              - if user_signed_in?
-                = link_to '데이터 추가하기', new_data_set_path, class: 'btn btn-secondary'
-              - else
-                = link_to '에디터 등록하기', new_user_registration_path, class: 'btn btn-secondary'
 
     %main.py-2
       .container
@@ -39,11 +33,11 @@
 
     %footer.my-5.pt-5.text-muted.text-center.text-small
       %p.mb-1
-        = link_to '더 민주적인 세상, 빠띠 쿱', 'https://parti.coop', target: :blank
+        = link_to '더 민주적인 세상, 빠띠 쿱', 'https://parti.coop', target: :blank, class: "text-dark"
       %ul.list-inline
         %li.list-inline-item
-          %a{:href => "#"} 문의
+          = link_to "문의", "https://democracy-activists.parti.xyz/p/datapublic", target: "_blank", class: "text-dark"
         %li.list-inline-item
-          %a{:href => "#"} 이용약관
+          %a.text-dark{:href => "#"} 이용약관
         %li.list-inline-item
-          %a{:href => "#"} 개인정보취급방침
+          %a.text-dark{:href => "#"} 개인정보취급방침
