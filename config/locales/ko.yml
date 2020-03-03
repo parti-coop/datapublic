@@ -31,6 +31,7 @@ ko:
     data_sets: 원데이터
     fact_checks: 팩트체크
     tags: 태그
+    search: 검색
   main:
     title: 원데이터
   link:
@@ -38,6 +39,8 @@ ko:
     destroy: 삭제
     sign_in: 로그인
     sign_out: 로그아웃
+  btn:
+    search: 검색
 
   date:
     abbr_day_names:

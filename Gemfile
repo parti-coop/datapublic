@@ -18,6 +18,7 @@ gem 'cancancan'
 gem "rails-settings-cached", "~> 2.0"
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'ancestry'
+gem "scoped_search"
 
 # activestorage
 gem 'mini_magick', '~> 4.8'

@@ -11,4 +11,6 @@ class DataSet < ApplicationRecord
   validates :url, presence: true
 
   default_scope { order("updated_at desc") }
+
+  scoped_search on: [:title, :body]
 end

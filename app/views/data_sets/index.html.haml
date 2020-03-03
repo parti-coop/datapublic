@@ -1,4 +1,8 @@
-%h2.pb-2= t('main.title')
+%h2.pb-2
+  = t('main.title')
+  - if params[:q].present?
+    = "'#{params[:q]}'"
+
 
 .row
   - @data_sets.each do |data_set|

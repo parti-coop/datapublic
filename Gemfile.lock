@@ -286,6 +286,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    scoped_search (4.1.7)
+      activerecord (>= 4.2.0)
     selenium-webdriver (3.8.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
@@ -396,6 +398,7 @@ DEPENDENCIES
   redis (~> 3.2, >= 3.2.2)
   redis-namespace (~> 1.5, >= 1.5.2)
   sass-rails (~> 5.0)
+  scoped_search
   selenium-webdriver
   sidekiq (~> 4.1)
   sidekiq-cron (~> 1.0, >= 1.0.4)
@@ -417,4 +420,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.0.2
+   2.1.4
