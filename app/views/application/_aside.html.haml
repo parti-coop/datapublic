@@ -1,0 +1,25 @@
+%section
+  %h4.text-muted= t('menu.tags')
+  .mb-4
+    - ActsAsTaggableOn::Tag.most_used(15).each do |tag|
+      - if tag.taggings_count > 0
+        = link_to tag_path(tag), class: 'btn btn-outline-secondary mr-2 mb-2' do
+          = "#{tag} (#{tag.taggings_count})"
+
+%section
+  %h4.text-muted 최신 데이터
+  .mb-4.list-group
+    - DataSet.limit(20).each do |data_set|
+      = link_to data_set, class: "list-group-item list-group-item-action" do
+        %h6.my-0= data_set.title
+        - data_set.tags.each do |tag|
+          %small= "##{tag}"
+
+%section
+  .mb-4
+    .border.p-3
+      .media
+        = image_tag 'parti_symbol', width: 80, class: "mr-3"
+        .media-body
+          %h5.mt-0= link_to '데이터 활동가 커뮤니티', "https://democracy-activists.parti.xyz/p/datapublic", target: "_blank", class: "text-dark"
+          = link_to "데이터로 더 투명하고 신뢰할 수 있는 세상을 만듭니다", "https://democracy-activists.parti.xyz/p/datapublic", target: "_blank", class: "text-dark"

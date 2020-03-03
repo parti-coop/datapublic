@@ -30,6 +30,7 @@ ko:
   menu:
     data_sets: 원데이터
     fact_checks: 팩트체크
+    tags: 태그
   main:
     title: 원데이터
   link:

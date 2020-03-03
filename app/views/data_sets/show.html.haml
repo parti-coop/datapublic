@@ -1,21 +1,23 @@
 %h2.pb-2= @data_set.title
 
-.my-4.p-4.border.bg-white
-  = raw @data_set.body
-
 .my-4
   %h5.text-muted= DataSet.human_attribute_name("url")
-  = text_field_tag "url", @data_set.url, class: "form-control"
+  .p-3.bg-white.border.overflow-hidden
+    = link_to @data_set.url, @data_set.url, class: "text-dark"
 
 - if @data_set.api_url.present?
   .my-4
     %h5.text-muted= DataSet.human_attribute_name("api_url")
-    = text_field_tag "api_url", @data_set.api_url, class: "form-control"
+    .p-3.bg-white.border.overflow-hidden
+      = link_to @data_set.api_url, @data_set.api_url, class: "text-dark"
+
+.my-4.p-3.border.bg-white
+  = raw @data_set.body
 
 .my-4
   %h5.text-muted= DataSet.human_attribute_name("tags")
   - @data_set.tags.each do |tag|
-    = link_to "##{tag.name}", tag_path(tag), class: "text-dark"
+    = link_to tag, tag_path(tag), class: 'btn btn-outline-secondary mr-2 mb-2'
 
 - if @data_set.links.any?
   .my-4
@@ -40,4 +42,4 @@
 .my-4
   %h5.text-muted= DataSet.human_attribute_name("comments")
   .my-4.p-4.border.bg-white
-    = link_to "데이터에 관한 의견 남기기", "https://democracy-activists.parti.xyz/p/datapublic", target: "_blank", class: "text-dark"
+    = link_to "데이터에 관한 의견이 있으세요?", "https://democracy-activists.parti.xyz/p/datapublic", target: "_blank", class: "text-dark"
