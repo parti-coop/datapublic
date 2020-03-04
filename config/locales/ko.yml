@@ -35,6 +35,7 @@ ko:
   main:
     title: 원데이터
   link:
+    new_data_set: 데이터 추가
     edit: 수정
     destroy: 삭제
     sign_in: 로그인
