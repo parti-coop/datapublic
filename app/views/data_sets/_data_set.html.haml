@@ -1,6 +1,6 @@
 .mb-4.card
   .card-body
-    %h5.card-title= link_to data_set.title, data_set
+    %h5.card-title= link_to data_set.title, data_set, class: "text-dark"
 
     %p.card-text
       %small= strip_tags(data_set.body).truncate(150)
