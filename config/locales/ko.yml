@@ -28,12 +28,12 @@ ko:
 
   site_name: 데이터퍼블릭.kr
   menu:
-    data_sets: 원데이터
+    data_sets: 데이터 찾기
     fact_checks: 팩트체크
     tags: 태그
     search: 검색
   main:
-    title: 원데이터
+    title: 데이터 찾기
   link:
     new_data_set: 데이터 추가
     edit: 수정
