@@ -5,7 +5,7 @@
   .mb-4
     - ActsAsTaggableOn::Tag.most_used(15).each do |tag|
       - if tag.taggings_count > 0
-        = link_to tag_path(tag), class: 'btn btn-outline-secondary mr-2 mb-2' do
+        = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-sm mr-2 mb-2' do
           = "#{tag} (#{tag.taggings_count})"
 
 %section
@@ -14,8 +14,6 @@
     - DataSet.limit(20).each do |data_set|
       = link_to data_set, class: "list-group-item list-group-item-action" do
         %h6.my-0= data_set.title
-        - data_set.tags.each do |tag|
-          %small= "##{tag}"
 
 %section
   .mb-4
