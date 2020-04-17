@@ -1,0 +1,5 @@
+= simple_form_for @rumor do |f|
+  = f.input :title
+  = f.input :body, as: :summernote
+
+  = f.submit data: { disable_with: "Please wait..." }, class: 'btn btn-primary'

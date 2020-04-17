@@ -1,0 +1,6 @@
+.mb-4.card
+  .card-body
+    %h5.card-title= link_to rumor.title, rumor, class: "text-dark"
+
+    %p.card-text
+      %small= strip_tags(rumor.body).truncate(150)

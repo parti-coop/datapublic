@@ -1,0 +1,16 @@
+.d-flex.justify-content-between.pb-2
+  %h4.font-weight-bold
+    = t('menu.rumors')
+    - if params[:q].present?
+      = "'#{params[:q]}'"
+  - if user_signed_in?
+    = link_to t('link.new_rumor'), new_rumor_path
+
+
+.row
+  - @rumors.each do |rumor|
+    .col-12
+      = render rumor
+
+.d-flex.justify-content-center
+  = paginate @rumors

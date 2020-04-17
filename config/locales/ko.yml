@@ -11,6 +11,7 @@ ko:
     attributes:
       user:
         email: 이메일
+        name: 닉네임
         password: 비밀번호
         password_confirmation: 비밀번호 확인
       data_set:
@@ -21,6 +22,10 @@ ko:
         tags: 태그
         links: 관련정보
         comments: 댓글
+      rumor:
+        title: 제목
+        body: 내용
+        comments: 댓글
       link:
         title: 제목
         body: 요약
@@ -28,14 +33,16 @@ ko:
 
   site_name: 데이터퍼블릭.kr
   menu:
-    data_sets: 데이터 찾기
+    data_sets: 데이터
+    rumors: 루머
     fact_checks: 팩트체크
     tags: 태그
     search: 검색
   main:
-    title: 데이터 찾기
+    title: 데이터
   link:
     new_data_set: 데이터 추가
+    new_rumor: 루머 추가
     edit: 수정
     destroy: 삭제
     sign_in: 로그인

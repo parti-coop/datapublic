@@ -1,0 +1,31 @@
+.mb-2
+  = link_to t('menu.rumors'), rumors_path, class: "text-dark"
+
+%h3.pb-2= @rumor.title
+
+.py-2.text-muted
+  %span.mr-2
+    %i.far.fa-user
+    = @rumor.user.name
+  %span.mr-2
+    %i.far.fa-calendar
+    = l @rumor.created_at.to_date
+
+.my-4.p-3.border.bg-white
+  = raw @rumor.body
+
+.my-4
+  .d-flex.justify-content-between
+    %div
+      - if user_signed_in?
+        = link_to t('link.edit'), edit_rumor_path(@rumor), class: "btn btn-outline-primary"
+    %div
+      - if user_signed_in? && (@rumor.user == current_user || current_user.admin?)
+        = link_to t('link.destroy'), @rumor, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
+
+%hr
+
+.my-4
+  %h5.text-muted= DataSet.human_attribute_name("comments")
+  .my-4.p-4.border.bg-white
+    = link_to "루머에 관한 의견이 있으세요?", "https://democracy-activists.parti.xyz/p/data_activists", target: "_blank", class: "text-dark"
