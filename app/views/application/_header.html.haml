@@ -9,7 +9,6 @@
         %li.nav-item.mt-4
           %small.text-light
             %i.far.fa-database
-            원본 데이터
         %li.nav-item= link_to t("menu.data_sets"), data_sets_path, class: "nav-link"
         - if user_signed_in?
           %li.nav-item= link_to t("link.new_data_set"), new_data_set_path, class: "nav-link"
@@ -17,7 +16,6 @@
         %li.nav-item.mt-4
           %small.text-light
             %i.far.fa-wind
-            팩트체크
         %li.nav-item= link_to t("menu.rumors"), rumors_path, class: "nav-link"
 
         %li.nav-item.mt-4

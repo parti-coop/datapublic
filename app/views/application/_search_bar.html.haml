@@ -1,5 +1,5 @@
 %section
-  %h4.text-muted= t('menu.search')
+  %h5.text-muted= t('menu.search')
   .bg-white.border.p-4.mb-4
     = form_with url: data_sets_path, method: :get, local: true do |f|
       = f.text_field :q, value: params[:q], class: "form-control mb-2"

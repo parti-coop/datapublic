@@ -1,7 +1,7 @@
 = render "search_bar"
 
 %section
-  %h4.text-muted= t('menu.tags')
+  %h5.text-muted= t('menu.tags')
   .mb-4
     - ActsAsTaggableOn::Tag.most_used(15).each do |tag|
       - if tag.taggings_count > 0
@@ -9,7 +9,7 @@
           = "#{tag} (#{tag.taggings_count})"
 
 %section
-  %h4.text-muted 최신 데이터
+  %h5.text-muted 최신 데이터
   .mb-4.list-group
     - DataSet.limit(20).each do |data_set|
       = link_to data_set, class: "list-group-item list-group-item-action" do

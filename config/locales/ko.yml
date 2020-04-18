@@ -33,7 +33,7 @@ ko:
 
   site_name: 데이터퍼블릭.kr
   menu:
-    data_sets: 데이터
+    data_sets: 원 데이터
     rumors: 루머
     fact_checks: 팩트체크
     tags: 태그
@@ -41,7 +41,7 @@ ko:
   main:
     title: 데이터
   link:
-    new_data_set: 데이터 추가
+    new_data_set: 원 데이터 추가
     new_rumor: 루머 추가
     edit: 수정
     destroy: 삭제
