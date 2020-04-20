@@ -1,3 +1,6 @@
+.mb-2
+  = link_to t('menu.data_sets'), data_sets_path, class: "text-dark"
+
 %h3.pb-2= @data_set.title
 
 .my-4
@@ -17,7 +20,7 @@
 .my-4
   %h5.text-muted= DataSet.human_attribute_name("tags")
   - @data_set.tags.each do |tag|
-    = link_to tag, tag_path(tag), class: 'btn btn-outline-secondary mr-2 mb-2'
+    = link_to tag, tag_path(tag), class: 'btn btn-outline-secondary btn-sm mr-2 mb-2'
 
 - if @data_set.links.any?
   .my-4
