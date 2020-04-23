@@ -1,0 +1,20 @@
+branch-defaults:
+  master:
+    environment: Datapublic-env
+environment-defaults:
+  Datapublic-env:
+    branch: null
+    repository: null
+global:
+  application_name: datapublic
+  default_ec2_keyname: datapublic
+  default_platform: arn:aws:elasticbeanstalk:ap-northeast-2::platform/Puma with Ruby
+    2.6 running on 64bit Amazon Linux/2.11.1
+  default_region: ap-northeast-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: git
+  workspace_type: Application
