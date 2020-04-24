@@ -1,0 +1,6 @@
+.list-group-item[link]
+  %h5.mb-1
+    = link_to link.url, class: "text-dark" do
+      = link.title
+
+  %p.mb-1= link_to link.data_set.title, link.data_set, class: "text-muted"

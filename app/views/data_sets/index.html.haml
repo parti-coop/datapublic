@@ -1,7 +1,9 @@
 %h2.pb-2
-  = t('main.title')
+  = t('menu.data_sets')
   - if params[:q].present?
     = "'#{params[:q]}'"
+  %small
+    = link_to t('menu.links'), links_path, class: "text-muted"
 
 .row
   - @data_sets.each do |data_set|

@@ -22,19 +22,15 @@ ko:
         tags: 태그
         links: 관련정보
         comments: 댓글
-      rumor:
-        title: 제목
-        body: 내용
-        comments: 댓글
       link:
         title: 제목
         body: 요약
         url: URL
 
-  site_name: 데이터퍼블릭.kr
+  site_name: 빠띠 데이터퍼블릭
   menu:
     data_sets: 원 데이터
-    rumors: 루머
+    links: 관련자료
     fact_checks: 팩트체크
     tags: 태그
     search: 검색
