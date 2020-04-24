@@ -1,9 +1,8 @@
-.mb-4.card
-  .card-body
-    %h5.card-title= link_to data_set.title, data_set, class: "text-dark"
+.list-group-item[data_set]
+  %h5.mb-1= link_to data_set.title, data_set, class: "text-dark"
 
-    %p.card-text= strip_tags(data_set.body).truncate(150)
+  %p.mb-2.text-muted= strip_tags(data_set.body).truncate(150)
 
-    %div
-      - data_set.tags.each do |tag|
-        = link_to "#{tag.name}", tag_path(tag), class: "btn btn-outline-secondary btn-sm"
+  %div
+    - data_set.tags.each do |tag|
+      = link_to "#{tag.name}", tag_path(tag), class: "btn btn-outline-secondary btn-sm"

@@ -7,14 +7,9 @@
           = "#{tag} (#{tag.taggings_count})"
 
 %section
-  %h5.text-muted 최신 데이터
-  .mb-4.list-group
-    - DataSet.limit(20).each do |data_set|
-      = link_to data_set, class: "list-group-item list-group-item-action" do
-        %h6.my-0= data_set.title
-
 %section
-  %h5.text-muted 최신 관련자료
+  %h5.text-muted
+    최신 #{t('menu.links')}
   .mb-4.list-group
     - Link.limit(20).each do |link|
       = link_to link.data_set, class: "list-group-item list-group-item-action" do

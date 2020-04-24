@@ -1,14 +1,15 @@
-%h2.pb-2
-  = t('menu.data_sets')
-  - if params[:q].present?
-    = "'#{params[:q]}'"
-  %small
-    = link_to t('menu.links'), links_path, class: "text-muted"
+.d-flex.justify-content-between.align-items-center
+  %h2.pb-2
+    = t('menu.data_sets')
+    - if params[:q].present?
+      = "'#{params[:q]}'"
+    %small
+      = link_to t('menu.links'), links_path, class: "text-muted"
+  - if user_signed_in?
+    = link_to t('link.new_data_set'), new_data_set_path
 
-.row
-  - @data_sets.each do |data_set|
-    .col-12
-      = render data_set
+.list-group
+  = render @data_sets
 
 .d-flex.justify-content-center
   = paginate @data_sets
