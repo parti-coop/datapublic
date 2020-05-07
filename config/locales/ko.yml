@@ -20,7 +20,7 @@ ko:
         url: 원데이터
         api_url: 관련 API
         tag_list: 태그
-        links: 가공 자료
+        links: 활용사례
         comments: 댓글
       link:
         title: 제목
@@ -29,15 +29,15 @@ ko:
 
   site_name: 빠띠 데이터퍼블릭
   menu:
-    data_sets: 데이터 출처
-    links: 가공 자료
+    data_sets: 원데이터
+    links: 활용사례
     fact_checks: 팩트체크
     tags: 태그
     search: 검색
   main:
     title: 데이터
   link:
-    new_data_set: 데이터 출처 추가
+    new_data_set: 원데이터 추가
     new_rumor: 루머 추가
     edit: 수정
     destroy: 삭제
