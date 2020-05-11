@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   resources :tags
   resources :links
 
+  get 'pages/about', as: 'about'
+
   root "data_sets#index"
 end
