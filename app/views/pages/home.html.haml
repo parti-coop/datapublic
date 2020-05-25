@@ -1,1 +1,24 @@
-%h2.mb-3 데이터
+%section.py-5
+  .container
+    .d-flex.justify-content-between.align-items-center
+      %h2.pb-2
+        = t('menu.archives')
+      %small
+        = link_to t('menu.archives'), archives_path
+
+    %section
+      .row
+        - @archives.each do |archive|
+          .col-md-4.col-sm-6.mb-4
+            = render archive
+
+%section.py-5
+  .container
+    %h2.pb-2
+      = t('menu.data_sets')
+
+    .list-group
+      = render @data_sets
+
+    .d-flex.justify-content-center
+      = paginate @data_sets

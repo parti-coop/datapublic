@@ -1,4 +1,5 @@
 = simple_form_for @data_set do |f|
+  = f.input :archive_id, collection: Archive.all
   = f.input :title
   = f.input :url
   = f.input :api_url
@@ -12,4 +13,5 @@
         = render 'link_fields', f: link
     = link_to_add_association '항목 추가', f, :links, class: "btn btn-outline-secondary", data: {"association-insertion-node" => "#links-items", "association-insertion-method" => "append"}
 
-  = f.submit data: { disable_with: "Please wait..." }, class: 'btn btn-primary'
+  = f.submit data: { disable_with: "Please wait..." }, class: 'btn btn-primary mr-2'
+  = link_to '취소', @archive

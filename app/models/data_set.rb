@@ -1,4 +1,5 @@
 class DataSet < ApplicationRecord
+  belongs_to :archive
   belongs_to :user
   has_many :links
 

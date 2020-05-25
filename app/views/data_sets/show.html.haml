@@ -1,48 +1,61 @@
-.mb-2
-  = link_to t('menu.data_sets'), data_sets_path, class: "text-dark"
+- if @archive.present?
+  = render "archives/cover", archive: @archive
 
-%h3.pb-2= @data_set.title
+%section.py-5
+  .container
+    .mb-2
+      = link_to t('menu.data_sets'), data_sets_path, class: "text-dark"
 
-.my-4
-  %h5.text-muted= DataSet.human_attribute_name("url")
-  .p-3.bg-white.border.overflow-hidden
-    = link_to @data_set.url, @data_set.url, class: "text-dark"
+    %h3.pb-2= @data_set.title
 
-- if @data_set.api_url.present?
-  .my-4
-    %h5.text-muted= DataSet.human_attribute_name("api_url")
-    .p-3.bg-white.border.overflow-hidden
-      = link_to @data_set.api_url, @data_set.api_url, class: "text-dark"
+    .my-4
+      %h5.text-muted= DataSet.human_attribute_name("url")
+      .p-3.bg-white.border.overflow-hidden
+        = link_to @data_set.url, @data_set.url, class: "text-dark"
 
-.my-4.p-3.border.bg-white
-  = raw @data_set.body
+    - if @data_set.api_url.present?
+      .my-4
+        %h5.text-muted= DataSet.human_attribute_name("api_url")
+        .p-3.bg-white.border.overflow-hidden
+          = link_to @data_set.api_url, @data_set.api_url, class: "text-dark"
 
-.my-4
-  %h5.text-muted= DataSet.human_attribute_name("tags")
-  - @data_set.tags.each do |tag|
-    = link_to tag, tag_path(tag), class: 'btn btn-outline-secondary btn-sm mr-2 mb-2'
+    .my-4.p-3.border.bg-white
+      = raw @data_set.body
 
-- if @data_set.links.any?
-  .my-4
-    %h5.text-muted= DataSet.human_attribute_name("links")
-    .list-group
-      - @data_set.links.each do |link|
-        = link_to link.url, class: "list-group-item" do
-          %h6.text-muted.mb-1= link.title
-          %p.text-muted.mb-1= link.body
+    .my-4
+      %h5.text-muted= DataSet.human_attribute_name("tags")
+      - @data_set.tags.each do |tag|
+        = link_to tag, tag_path(tag), class: 'btn btn-outline-secondary btn-sm mr-2 mb-2'
 
-.my-4
-  .d-flex.justify-content-between
-    %div
-      - if user_signed_in?
-        = link_to t('link.edit'), edit_data_set_path(@data_set), class: "btn btn-outline-primary"
-    %div
-      - if user_signed_in? && (@data_set.user == current_user || current_user.admin?)
-        = link_to t('link.destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
+    - if @data_set.links.any?
+      .my-4
+        %h5.text-muted= DataSet.human_attribute_name("links")
+        .list-group
+          - @data_set.links.each do |link|
+            = link_to link.url, class: "list-group-item" do
+              %h6.text-muted.mb-1= link.title
+              %p.text-muted.mb-1= link.body
 
-%hr
+    .my-4
+      .d-flex.justify-content-between
+        %div
+          - if user_signed_in?
+            = link_to t('link.edit'), edit_data_set_path(@data_set), class: "btn btn-outline-primary"
+        %div
+          - if user_signed_in? && (@data_set.user == current_user || current_user.admin?)
+            = link_to t('link.destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
 
-.my-4
-  %h5.text-muted= DataSet.human_attribute_name("comments")
-  .my-4.p-4.border.bg-white
-    = link_to "데이터에 관한 의견이 있으세요?", "https://democracy-activists.parti.xyz/p/data_activists", target: "_blank", class: "text-dark"
+    %hr
+
+    .my-4
+      %h5.text-muted= DataSet.human_attribute_name("comments")
+      .my-4.p-4.border.bg-white
+        = link_to "데이터에 관한 의견이 있으세요?", "https://democracy-activists.parti.xyz/p/data_activists", target: "_blank", class: "text-dark"
+
+    %hr
+
+    .my-4
+      - if @archive
+        = link_to '아카이브로 돌아가기', @archive, class: 'btn btn-outline-primary'
+      - else
+        = link_to '목록으로 돌아가기', data_sets_path, class: 'btn btn-outline-primary'

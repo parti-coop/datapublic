@@ -8,7 +8,8 @@ class DataSetsController < ApplicationController
   end
 
   def new
-    @data_set = DataSet.new
+    @archive = Archive.find(params[:archive])
+    @data_set = @archive.data_sets.build
   end
 
   def create
@@ -23,6 +24,7 @@ class DataSetsController < ApplicationController
   end
 
   def show
+    @archive = @data_set.archive
   end
 
   def edit
@@ -49,7 +51,7 @@ class DataSetsController < ApplicationController
 
     def data_set_params
       params.require(:data_set).permit(
-        :title, :url, :api_url, :body, :tag_list,
+        :archive_id, :title, :url, :api_url, :body, :tag_list,
         links_attributes: [:id, :title, :body, :url, :_destroy]
       )
     end

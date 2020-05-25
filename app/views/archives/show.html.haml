@@ -1,0 +1,19 @@
+= render "cover", archive: @archive
+
+%section.py-5
+  .container
+    %h2.pb-2
+      설명
+    %p.lead= raw @archive.body
+
+%section.py-5
+  .container
+    .d-flex.justify-content-between.align-items-center
+      %h2.pb-2
+        = t('menu.data_sets')
+      %small
+        = link_to t('link.new_data_set'), new_data_set_path(archive: @archive)
+
+    .list-group
+      = render @data_sets
+

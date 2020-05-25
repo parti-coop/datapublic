@@ -1,0 +1,11 @@
+%section.py-5.m-0.jumbotron.jumbotron-fluid.bg-transparent.position-relative.d-flex.align-items-center{ style: "width: 100vw; min-height: 25vh; overflow: hidden;" }
+  = image_tag archive.cover, class: "img-fluid position-absolute", style: "object-fit: cover; object-position: top; height: 100%; width: 100%; -webkit-filter: blur(5px); filter: blur(5px);"
+  .bg-dark.position-absolute{ style: "width: 100%; height: 100%; opacity: 0.4" }
+  .container.position-relative
+    .mb-2= link_to t('menu.archives'), archives_path, class: "text-white"
+    %h1.display-4.text-white.font-weight-bolder{ style: "text-shadow: 2px 2px #000;" }
+      = archive.title
+    %h2= link_to "https://#{@archive.slug}.datapublic.kr", "#", class: "text-white"
+    - if user_signed_in? && current_user == archive.user
+      %p.lead
+        = link_to t('link.edit'), edit_archive_path, class: "text-white"

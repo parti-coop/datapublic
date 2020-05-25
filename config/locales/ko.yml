@@ -14,10 +14,16 @@ ko:
         name: 닉네임
         password: 비밀번호
         password_confirmation: 비밀번호 확인
+      archive:
+        slug: 웹 주소
+        title: 제목
+        body: 설명
+        cover: 커버 이미지
       data_set:
+        archive_id: 아카이브
         title: 제목
         body: 내용
-        url: 원데이터
+        url: 출처
         api_url: 관련 API
         tag_list: 태그
         links: 활용사례
@@ -29,7 +35,8 @@ ko:
 
   site_name: 빠띠 데이터퍼블릭
   menu:
-    data_sets: 원데이터
+    archives: 아카이브
+    data_sets: 데이터
     links: 활용사례
     fact_checks: 팩트체크
     tags: 태그
@@ -37,7 +44,8 @@ ko:
   main:
     title: 데이터
   link:
-    new_data_set: 원데이터 추가
+    new_archive: 아카이브 개설
+    new_data_set: 데이터 추가
     new_rumor: 루머 추가
     edit: 수정
     destroy: 삭제

@@ -1,0 +1,6 @@
+.card.text-white.border-0
+  = image_tag archive.cover, class: "card-img"
+  .card-img-overlay
+    = link_to archive, class: "text-white" do
+      %h3.m-0.overflow-hidden.text{ style: 'position: absolute; margin: auto;' }
+        = archive.title
