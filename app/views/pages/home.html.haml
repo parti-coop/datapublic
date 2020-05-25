@@ -12,10 +12,22 @@
           .col-md-4.col-sm-6.mb-4
             = render archive
 
+%section
+  .container
+    %h2.pb-2
+      = t('menu.tags')
+    .mb-4
+      - ActsAsTaggableOn::Tag.most_used(15).each do |tag|
+        - if tag.taggings_count > 0
+          = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-sm mr-2 mb-2' do
+            = "#{tag} (#{tag.taggings_count})"
+
 %section.py-5
   .container
     %h2.pb-2
       = t('menu.data_sets')
+      %small
+        = link_to t('menu.links'), links_path, class: "text-muted"
 
     .list-group
       = render @data_sets

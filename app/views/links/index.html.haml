@@ -1,10 +1,12 @@
-%h2.pb-2
-  = t('menu.links')
-  %small
-    = link_to t('menu.data_sets'), data_sets_path, class: "text-muted"
+%section.py-5
+  .container
+    %h2.pb-2
+      = t('menu.links')
+      %small
+        = link_to t('menu.data_sets'), data_sets_path, class: "text-muted"
 
-.list-group
-  = render @links
+    .list-group
+      = render @links
 
-.d-flex.justify-content-center
-  = paginate @links
+    .d-flex.justify-content-center
+      = paginate @links
