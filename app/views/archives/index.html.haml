@@ -9,9 +9,8 @@
 
     %section
       .row
-        - 10.times do
-          - @archives.each do |archive|
-            .col-md-4.col-sm-6.mb-4
-              = render archive
+        - @archives.each do |archive|
+          .col-md-4.col-sm-6.mb-4
+            = render archive
 
     = paginate @archives

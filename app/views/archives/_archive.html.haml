@@ -1,6 +1,11 @@
-.card.text-white.border-0
-  = image_tag archive.cover, class: "card-img"
+.card.text-white.border
+  .card-image
+    = link_to archive do
+      = image_tag archive.cover
   .card-img-overlay
     = link_to archive, class: "text-white" do
-      %h3.m-0.overflow-hidden.text{ style: 'position: absolute; margin: auto;' }
-        = archive.title
+      %div{ style: 'position: absolute;' }
+        %h3.verflow-hidden.text
+          = archive.title
+        %p 데이터 #{archive.data_sets.count}건
+

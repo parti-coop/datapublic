@@ -44,6 +44,6 @@ class ArchivesController < ApplicationController
   end
 
   def archive_params
-    params.require(:archive).permit(:slug, :cover, :title, :body)
+    params.require(:archive).permit(:slug, :cover, :title, :body, :publisher)
   end
 end

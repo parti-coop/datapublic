@@ -19,6 +19,7 @@ ko:
         title: 제목
         body: 설명
         cover: 커버 이미지
+        publisher: 아카이브 작성기관 소개글
       data_set:
         archive_id: 아카이브
         title: 제목
@@ -44,6 +45,7 @@ ko:
   main:
     title: 데이터
   link:
+    more: 더 보기
     new_archive: 아카이브 개설
     new_data_set: 데이터 추가
     new_rumor: 루머 추가
