@@ -13,7 +13,13 @@ development:
   adapter: postgresql
   database: datapublic
   encoding: unicode
-  host: localhost
+  host: <%= ENV.fetch("DATABASE_HOST") {"localhost"} %>
+  <% if(ENV["DATABASE_USERNAME"] != nil) %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  <% end %>
+  <% if(ENV["DATABASE_PASSWORD"] != nil) %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  <% end %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
