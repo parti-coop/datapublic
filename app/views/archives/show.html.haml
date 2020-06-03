@@ -17,10 +17,11 @@
     .list-group
       = render @data_sets
 
-%section.py-5
-  .container
-    %h2.pb-2
-      아카이브 제공
+- if @archive.publisher.present?
+  %section.py-5
+    .container
+      %h2.pb-2
+        아카이브 제공
 
-    .border.bg-white.p-3
-      = raw @archive.publisher
+      .border.bg-white.p-3
+        = raw @archive.publisher
