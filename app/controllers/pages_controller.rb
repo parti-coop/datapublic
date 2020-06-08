@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   def home
-    @data_sets = DataSet.page(1)
-    @archives = Archive.page(1)
+    @data_sets = DataSet.page params[:page]
+    @archives = Archive.page params[:page]
   end
 
   def about
