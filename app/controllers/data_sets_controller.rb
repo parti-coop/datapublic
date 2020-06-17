@@ -8,8 +8,13 @@ class DataSetsController < ApplicationController
   end
 
   def new
-    @archive = Archive.find(params[:archive])
-    @data_set = @archive.data_sets.build
+    if params[:archive]
+      @archive = Archive.find(params[:archive]) 
+      @data_set = @archive.data_sets.build
+    else
+      @archive = Archive.new
+      @data_set = DataSet.new
+    end
   end
 
   def create
