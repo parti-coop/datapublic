@@ -1,6 +1,6 @@
 .card.text-white.border
-  .card-image
-    = link_to archive do
+  - if archive.cover.attached?
+    .card-image
       = image_tag archive.cover
   .card-img-overlay
     = link_to archive, class: "text-white" do
