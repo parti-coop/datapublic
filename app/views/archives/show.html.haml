@@ -6,6 +6,14 @@
       설명
     %p.lead= raw @archive.body
 
+    - if user_signed_in? && (@archive.user == current_user || current_user.admin?)
+      .my-4
+        .d-flex.justify-content-between
+          %div
+            = link_to t('link.edit'), edit_archive_path(@archive), class: "btn btn-outline-primary"
+          %div
+            = link_to t('link.destroy'), @archive, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
+
 %section.py-5
   .container
     .d-flex.justify-content-between.align-items-center
