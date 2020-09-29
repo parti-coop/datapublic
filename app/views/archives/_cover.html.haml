@@ -8,4 +8,5 @@
     %h2= link_to "https://#{@archive.slug}.datapublic.kr", "#", class: "text-white"
     - if user_signed_in? && current_user == archive.user
       %p.lead
-        = link_to t('link.edit'), edit_archive_path, class: "text-white"
+        = link_to t('link.edit'), edit_archive_path, class: "text-white mr-1"
+        = link_to t('link.destroy'), @archive, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "text-white"
