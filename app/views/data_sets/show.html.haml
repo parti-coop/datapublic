@@ -6,19 +6,46 @@
     .mb-2
       = link_to t('menu.data_sets'), data_sets_path, class: "text-dark"
 
-    %h3.pb-2= @data_set.title
+    %h2.pb-2= @data_set.title
 
-    .my-4
-      %h5.text-muted= DataSet.human_attribute_name("url")
-      .p-3.bg-white.border.overflow-hidden
-        = link_to @data_set.url, @data_set.url, class: "text-dark"
+    .bg-white.my-4
+      %table.table.table-bordered
+        %tr
+          %th= DataSet.human_attribute_name("publisher")
+          %td.overflow-hidden= @data_set.publisher
+        %tr
+          %th= DataSet.human_attribute_name("url")
+          %td.overflow-hidden= link_to @data_set.url, @data_set.url, class: "text-dark"
+        - if @data_set.api_url.present?
+          %tr
+            %th= DataSet.human_attribute_name("api_url")
+            %td= link_to @data_set.api_url, @data_set.api_url, class: "text-dark"
+        - if @data_set.file_type.present?
+          %tr
+            %th= DataSet.human_attribute_name("file_type")
+            %td= @data_set.file_type
+        - if @data_set.properties.present?
+          %tr
+            %th= DataSet.human_attribute_name("properties")
+            %td= simple_format @data_set.properties
+        - if @data_set.data_created_at.present?
+          %tr
+            %th= DataSet.human_attribute_name("data_created_at")
+            %td= @data_set.data_created_at
+        - if @data_set.data_updated_at.present?
+          %tr
+            %th= DataSet.human_attribute_name("data_updated_at")
+            %td= @data_set.data_updated_at
+        - if @data_set.license.present?
+          %tr
+            %th= DataSet.human_attribute_name("license")
+            %td= @data_set.license
+        - if @data_set.memo.present?
+          %tr
+            %th= DataSet.human_attribute_name("memo")
+            %td= simple_format @data_set.memo
 
-    - if @data_set.api_url.present?
-      .my-4
-        %h5.text-muted= DataSet.human_attribute_name("api_url")
-        .p-3.bg-white.border.overflow-hidden
-          = link_to @data_set.api_url, @data_set.api_url, class: "text-dark"
-
+    %h4.text-muted= DataSet.human_attribute_name("body")
     .my-4.p-3.border.bg-white
       = raw @data_set.body
 

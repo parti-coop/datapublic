@@ -57,6 +57,7 @@ class DataSetsController < ApplicationController
     def data_set_params
       params.require(:data_set).permit(
         :archive_id, :title, :url, :api_url, :body, :tag_list,
+        :publisher, :file_type, :properties, :data_created_at, :data_updated_at, :license, :memo,
         links_attributes: [:id, :title, :body, :url, :_destroy]
       )
     end

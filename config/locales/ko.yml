@@ -25,7 +25,14 @@ ko:
         title: 제목
         body: 내용
         url: 출처
-        api_url: 관련 API
+        publisher: 관리기관
+        file_type: 파일형식
+        properties: 데이터 속성
+        data_created_at: 원본생성일
+        data_updated_at: 수정일
+        license: 라이선스
+        memo: 데이터 참고사항
+        api_url: API
         tag_list: 태그
         links: 활용사례
         comments: 댓글

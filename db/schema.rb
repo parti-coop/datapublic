@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_075229) do
+ActiveRecord::Schema.define(version: 2020_10_02_072107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,13 @@ ActiveRecord::Schema.define(version: 2020_05_27_075229) do
     t.string "url"
     t.string "api_url"
     t.bigint "archive_id"
+    t.string "publisher"
+    t.string "file_type"
+    t.text "properties"
+    t.string "data_created_at"
+    t.string "data_updated_at"
+    t.string "license"
+    t.text "memo"
     t.index ["archive_id"], name: "index_data_sets_on_archive_id"
     t.index ["user_id"], name: "index_data_sets_on_user_id"
   end
