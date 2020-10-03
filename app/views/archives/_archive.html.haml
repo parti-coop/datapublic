@@ -3,7 +3,7 @@
     .card-image
       = image_tag archive.cover
   .card-img-overlay
-    = link_to archive, class: "text-white" do
+    = link_to archive_link(archive), class: "text-white" do
       %div{ style: 'position: absolute;' }
         %h3.verflow-hidden.text
           = archive.title
