@@ -1,4 +1,16 @@
-%section.py-5
+%section.my-5
+  .container
+    .d-flex.justify-content-between.align-items-center
+      %h2.pb-2
+        = t('menu.posts')
+      %small
+        = link_to t('link.more'), posts_path
+    .row
+      - @posts.each do |post|
+        .col-md-4.col-sm-6.mb-4
+          = render post
+
+%section.my-5
   .container
     .d-flex.justify-content-between.align-items-center
       %h2.pb-2
@@ -12,7 +24,7 @@
           .col-md-4.col-sm-6.mb-4
             = render archive
 
-%section
+%section.my-5
   .container
     %h2.pb-2
       = t('menu.tags')
@@ -22,7 +34,7 @@
           = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-sm mr-2 mb-2' do
             = "#{tag} (#{tag.taggings_count})"
 
-%section.py-5
+%section.my-5
   .container
     %h2.pb-2
       = t('menu.data_sets')

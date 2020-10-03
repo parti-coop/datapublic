@@ -1,0 +1,7 @@
+.card.border-0.bg-transparent
+  = link_to post do
+    - if post.cover.attached?
+      .card-image
+        = image_tag post.cover
+      .card-body.p-0.py-3
+        %h5.card-title= post.title

@@ -1,0 +1,17 @@
+%section.py-5
+  .container
+    .mb-2
+      = link_to t('menu.posts'), posts_path, class: 'text-dark'
+      
+    %h2.pb-2= @post.title
+
+    .border.bg-white.my-4.p-3
+      = raw @post.body
+
+    - if user_signed_in? && (@post.user == current_user || current_user.admin?)
+      .my-4
+        .d-flex.justify-content-between
+          %div
+            = link_to t('link.edit'), edit_post_path(@post), class: "btn btn-outline-primary"
+          %div
+            = link_to t('link.destroy'), @post, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
