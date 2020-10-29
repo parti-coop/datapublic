@@ -51,8 +51,8 @@ source 'https://rails-assets.org' do
 end
 
 # pdf
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+#gem 'wicked_pdf'
+#gem 'wkhtmltopdf-binary'
 
 # excel
 gem 'axlsx', '2.1.0.pre'

@@ -47,6 +47,7 @@ ko:
     data_sets: 데이터
     links: 활용사례
     fact_checks: 팩트체크
+    posts: 소식
     tags: 태그
     search: 검색
   main:
@@ -55,7 +56,7 @@ ko:
     more: 더 보기
     new_archive: 아카이브 개설
     new_data_set: 데이터 추가
-    new_rumor: 루머 추가
+    new_post: 소식 추가
     edit: 수정
     destroy: 삭제
     sign_in: 로그인
