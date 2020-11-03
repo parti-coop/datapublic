@@ -1,24 +1,23 @@
 - set_tags(og_title: "#{@post.title} - 빠띠 데이터퍼블릭", og_url: post_url(@post), og_image: rails_blob_url(@post.cover))
-%section.py-5
-  .container
+.container{ style: 'max-width: 720px;' }
+  %section.py-5
     .mb-2
       = link_to t('menu.posts'), posts_path, class: 'text-dark'
       
-    %h2.pb-2= @post.title
+    %h2.pb-2.border-bottom= @post.title
     - if user_signed_in? && (@post.user == current_user || current_user.admin?)
-      .py-1
+      %small.py-1
         = link_to t('link.edit'), edit_post_path(@post)
         = link_to t('link.destroy'), @post, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "text-danger"
 
     .my-4
       .lead= raw @post.body
 
+  %section.my-5
+    .container
+      .row
+        - Post.limit(6).each do |post|
+          .col-md-4.col-sm-6.mb-4
+            = render post
 
-%section.my-5
-  .container
-    .row
-      - Post.limit(6).each do |post|
-        .col-md-4.col-sm-6.mb-4
-          = render post
-
-%section.my-5
+  %section.my-5
