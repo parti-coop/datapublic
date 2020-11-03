@@ -2,10 +2,10 @@
   - if archive.cover.attached?
     .card-image
       = image_tag archive.cover
-  .card-img-overlay
+  .bg-dark.position-absolute{ style: "width: 100%; height: 100%; opacity: 0.5" }
+  .card-img-overlay.p-4.d-flex.align-items-center.justify-content-center
     = link_to archive_link(archive), class: "text-white" do
-      %div{ style: 'position: absolute;' }
-        %h3.verflow-hidden.text
-          = archive.title
-        %p 데이터 #{archive.data_sets.count}건
+      .badge.badge-primary= t('menu.archives')
+      %h2.verflow-hidden.font-weight-bold
+        = archive.title
 

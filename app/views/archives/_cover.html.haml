@@ -2,10 +2,11 @@
   = image_tag archive.cover, class: "img-fluid position-absolute", style: "object-fit: cover; object-position: middle; height: 100%; width: 100%; -webkit-filter: blur(5px); filter: blur(2px);"
   .bg-dark.position-absolute{ style: "width: 100%; height: 100%; opacity: 0.4" }
   .container.position-relative
-    .mb-2= link_to t('menu.archives'), archives_path, class: "text-white"
-    %h1.display-4.text-white.font-weight-bolder{ style: "text-shadow: 2px 2px #000;" }
+    .mb-2
+      .badge.badge-primary= t('menu.archives')
+    %h1.display-4.text-white.font-weight-bold
       = archive.title
-    %h2= link_to archive_link(@archive), archive_link(@archive), class: "text-white"
+    %h2= link_to archive_link(@archive), archive_link(@archive), class: "text-white font-weight-normal"
     - if user_signed_in? && current_user == archive.user
       %p.lead
         = link_to t('link.edit'), edit_archive_path, class: "text-white mr-1"
