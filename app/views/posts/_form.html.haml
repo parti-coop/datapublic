@@ -2,6 +2,7 @@
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
+  = f.input :archive_id, collection: Archive.all
   = f.input :title
   = f.input :cover
   = f.input :body, as: "summernote"

@@ -13,10 +13,13 @@
     .my-4
       .lead= raw @post.body
 
-  %section.my-5
-    .container
+  - if @post.archive.present?
+    %section.my-5
+      %h3.pb-2
+        [아카이브]
+        = link_to @post.archive.title, @post.archive
       .row
-        - Post.limit(6).each do |post|
+        - @post.archive.posts.each do |post|
           .col-md-4.col-sm-6.mb-4
             = render post
 

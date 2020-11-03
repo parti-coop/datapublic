@@ -1,6 +1,7 @@
 class Archive < ApplicationRecord
   belongs_to :user
   has_many :data_sets
+  has_many :posts
 
   has_one_attached :cover
 
