@@ -11,7 +11,6 @@
   = f.input :license
   = f.input :memo
   = f.input :body, as: :summernote
-  = f.input :tag_list
   .form-group.string.optional
     = f.label :tag_list
     = f.text_field :tag_list, value: f.object.tags.join(', '), class: 'form-control string optional'
