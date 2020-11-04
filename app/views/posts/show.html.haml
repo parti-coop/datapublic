@@ -11,7 +11,8 @@
         = link_to t('link.destroy'), @post, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "text-danger"
 
     .my-4
-      .lead= raw @post.body
+      %div{ style:'font-weight: 1.25rem' }
+        = raw @post.body
 
   - if @post.archive.present?
     %section.my-5
