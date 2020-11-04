@@ -11,10 +11,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %script{crossorigin: "anonymous", src: "https://kit.fontawesome.com/d1995cff7d.js"}
-
     = render "meta_og"
-  %body.bg-light
-
+  %body
     = render "header"
     %main= yield
     = render "footer"
