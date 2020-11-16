@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   get 'pages/about', as: 'about'
 
   root "pages#home"
+
+  namespace :admin do
+    resources :assets, only: [:create, :destroy]
+  end
 end

@@ -3,3 +3,10 @@
 @import "bootstrap";
 @import "summernote-bs4";
 @import "parti";
+
+.body-content {
+  font-size: 1.25rem;
+  img {
+    max-width: 100%;
+  }
+}
