@@ -1,0 +1,6 @@
+%tr[user]
+  %td= user.email
+  %td= user.name
+  %td
+    = user.role
+    = select_tag 'user[role]', options_for_select(User.roles, user.role), { data: { remote: true, url: admin_user_path(user), method: :put }, class: 'form-control form-control-sm' }

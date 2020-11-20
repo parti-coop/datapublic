@@ -1,0 +1,15 @@
+%section.py-5
+  .container
+    .d-flex
+      %h2.pb-2
+        사용자 관리
+
+    %section
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th 이메일
+            %th 닉네임
+            %th 역할
+        %tbody
+          = render @users
