@@ -177,9 +177,22 @@ header nav.navbar.fixed-top {
 }
 
 .btn-full-white{
-  margin: 0 2.125rem;;
+  margin: 0 2.125rem;
   background-color: $white;
   color: #4d1b9d !important;
+}
+
+.btn-outline-no{
+  width: 50%;
+  text-align: center;
+}
+
+.btn-outline-no:hover{
+  text-decoration: none;
+}
+
+.btn-right-border{
+  border-right: 1px solid #bebebe;
 }
 
 .close-header{

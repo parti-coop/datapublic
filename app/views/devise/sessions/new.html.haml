@@ -16,4 +16,5 @@
         = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
       .form-actions.my-5
         = f.button :submit, "로그인", class: 'btn btn-full-orange btn-full py-2'
-    = render "devise/shared/links"
+    %section.d-flex.align-items-center.justify-content-between
+      = render "devise/shared/links"
