@@ -1,32 +1,54 @@
 %header
-  %nav.navbar.fixed-top.navbar-dark.justify-content-start{ style: "background-color: #001288;"}
-    %button.navbar-toggler.p-0.border-0.mr-2{"data-toggle" => "offcanvas", :type => "button"}
-      %span.navbar-toggler-icon
+  %nav.navbar.fixed-top.navbar-dark{ style: "background-color: #4d1b9d; display:flex; justify-content: space-between;"}
+    .navbar-btns
+      %button.navbar-toggler.p-0.border-0.mr-2{"data-toggle" => "offcanvas", :type => "button"}
+        %span.navbar-toggler-icon
 
-    .navbar-collapse.offcanvas-collapse{ style: "background-color: #001288;"}
-      %ul.navbar-nav
+      = link_to t("site_name"), root_path, class: "navbar-brand"
 
+    %ul.navbar-nav.navbar-row
+      %li.nav-item
+        %small.text-light
+          %i.far.fa-database
+      %li.nav-item= link_to t("menu.archives"), archives_path, class: "nav-link"
+      %li.nav-item= link_to t("menu.data_sets"), data_sets_path, class: "nav-link"
+      %li.nav-item= link_to t("menu.links"), links_path, class: "nav-link"
+      %li.nav-item= link_to t("menu.posts"), posts_path, class: "nav-link"
+
+      %li.nav-item
+        %small.text-light
+          %i.far.fa-user
+      - if user_signed_in?
+        %li.nav-item= link_to t("link.sign_out"), destroy_user_session_path, method: :delete, class: "nav-link"
+      - else
+        %li.nav-item= link_to t("link.sign_in"), new_user_session_path, class: "nav-link"
+
+    /*숨겨져 있는 메뉴*/
+    .navbar-collapse.offcanvas-collapse.d-flex.flex-column{ style: "background-color: #331269;"}
+      .d-flex.justify-content-between.close-header.w-100
+        = link_to t("site_name"), root_path, class: "navbar-brand"
+        %button.navbar-toggler{"data-toggle" => "offcanvas", :type => "button", "aria-label" => "Close", class: "close-btn"}
+      %ul.navbar-nav.w-100
         %li.nav-item.mt-4
           %small.text-light
             %i.far.fa-database
-        %li.nav-item= link_to t("menu.archives"), archives_path, class: "nav-link"
-        %li.nav-item= link_to t("menu.data_sets"), data_sets_path, class: "nav-link"
-        %li.nav-item= link_to t("menu.links"), links_path, class: "nav-link"
+        %li.nav-item= link_to t("menu.archives"), archives_path, class: "nav-link nav-link-normal"
+        %li.nav-item= link_to t("menu.data_sets"), data_sets_path, class: "nav-link nav-link-normal"
+        %li.nav-item= link_to t("menu.links"), links_path, class: "nav-link nav-link-normal"
         %li.nav-item= link_to t("menu.posts"), posts_path, class: "nav-link"
 
-        %li.nav-item.mt-4
+        %li.nav-item
           %small.text-light
             %i.far.fa-user
-        - if user_signed_in?
-          %li.nav-item
-            .nav-link
-              #{current_user.name} (#{current_user.email})
-          %li.nav-item= link_to t("link.sign_out"), destroy_user_session_path, method: :delete, class: "nav-link"
-        - else
-          %li.nav-item= link_to t("link.sign_in"), new_user_session_path, class: "nav-link"
 
-    .mr-auto
-      = link_to t("site_name"), root_path, class: "navbar-brand"
+      - if user_signed_in?
+        .nav-item.w-100.my-auto= link_to t("link.sign_out"), destroy_user_session_path, method: :delete, class: "nav-link btn btn-full-white"
+      - else
+        .nav-item.nav-logging.w-100.my-auto= link_to t("link.sign_in"), new_user_session_path, class: "nav-link btn btn-full-white"
+
+
+
 
     = form_with url: data_sets_path, method: :get, local: true, class: "form-inline" do |f|
-      = f.text_field :q, value: params[:q], placeholder: "검색", class: "form-control form-control-sm"
+      = f.text_field :q, value: params[:q], placeholder: "검색", class: "form-control mr-sm-2"
+      = submit_tag "검색", class: "btn btn-outline-parti my-2 my-sm-0"
