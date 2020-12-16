@@ -5,7 +5,7 @@
         = t('menu.archives')
       %small
         - if user_signed_in?
-          = link_to t('link.new_archive'), new_archive_path
+          = link_to t('link.new_archive'), new_archive_path, class: "btn btn-outline-primary"
     %hr.mb-4.mt-0.hr-width-2
     %section
       .row

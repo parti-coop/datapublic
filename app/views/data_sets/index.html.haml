@@ -10,7 +10,7 @@
   %hr.mt-0.mb-4
   .container
     - if user_signed_in?
-      = link_to t('link.new_data_set'), new_data_set_path
+      = link_to t('link.new_data_set'), new_data_set_path, class: "btn btn-outline-primary my-2"
     .list-group.mb-2
       = render @data_sets
 

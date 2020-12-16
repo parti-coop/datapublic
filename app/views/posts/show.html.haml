@@ -7,8 +7,8 @@
     %h2.py-3.border-bottom.border-primary-2.border-bottom-dark= @post.title
     - if user_signed_in? && (@post.user == current_user || current_user.admin?)
       %small.py-1
-        = link_to t('link.edit'), edit_post_path(@post)
-        = link_to t('link.destroy'), @post, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "text-danger"
+        = link_to t('link.edit'), edit_post_path(@post), class: "btn btn-outline-primary"
+        = link_to t('link.destroy'), @post, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "text-danger btn btn-outline-danger ml-2"
 
     .my-4
       .body-content
