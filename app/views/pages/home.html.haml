@@ -1,10 +1,29 @@
+%section.my-4
+  #introSlide.carousel.slide{"data-bs-ride" => "carousel"}
+    %ol.carousel-indicators
+      %li.active{"data-bs-slide-to" => "0", "data-bs-target" => "#introSlide"}
+      %li{"data-bs-slide-to" => "1", "data-bs-target" => "#introSlide"}
+      %li{"data-bs-slide-to" => "2", "data-bs-target" => "#introSlide"}
+    .carousel-inner
+      .carousel-item.active
+        %img.d-block.w-100{:src => "https://dummyimage.com/1200x630/000/fff"}
+      .carousel-item
+        %img.d-block.w-100{:src => "https://dummyimage.com/1200x630/000/fff"}
+      .carousel-item
+        %img.d-block.w-100{:src => "https://dummyimage.com/1200x630/000/fff"}
+    %a.carousel-control-prev{"data-bs-slide" => "prev", :href => "#introSlide", :role => "button"}
+      %span.carousel-control-prev-icon{"aria-hidden" => "true"}
+    %a.carousel-control-next{"data-bs-slide" => "next", :href => "#introSlide", :role => "button"}
+      %span.carousel-control-next-icon{"aria-hidden" => "true"}
+
+
 %section.my-5
   .container
     .d-flex.justify-content-between.align-items-center
-      %h2.pb-2
+      %h2.pb-2.font-weight-bold
         = t('menu.posts')
       %small
-        = link_to t('link.more'), posts_path
+        = link_to t('link.more'), posts_path, class: "more-arrow"
     .row
       - @posts.each do |post|
         .col-md-4.col-sm-6.mb-4
@@ -13,36 +32,62 @@
 %section.my-5
   .container
     .d-flex.justify-content-between.align-items-center
-      %h2.pb-2
+      %h2.pb-2.font-weight-bold
         = t('menu.archives')
       %small
-        = link_to t('link.more'), archives_path
+        = link_to t('link.more'), archives_path, class: "more-arrow"
 
     %section
       .row
         - @archives.each do |archive|
-          .col-md-4.col-sm-6.mb-4
+          .col-md-4.col-sm-6.mb-4.mobile-col
             = render archive
 
 %section.my-5
   .container
-    %h2.pb-2
-      = t('menu.tags')
+    .d-flex.justify-content-between.align-items-center
+      %h2.pb-2.font-weight-bold
+        = t('menu.tags')
     .mb-4
       - ActsAsTaggableOn::Tag.most_used(15).each do |tag|
         - if tag.taggings_count > 0
-          = link_to tag_path(tag), class: 'btn btn-outline-secondary btn-sm mr-2 mb-2' do
+          = link_to tag_path(tag), class: 'btn btn-outline-gray-2 btn-sm mr-2 mb-2' do
             = "#{tag} (#{tag.taggings_count})"
 
 %section.my-5
   .container
-    %h2.pb-2
-      = t('menu.data_sets')
-      %small
-        = link_to t('menu.links'), links_path, class: "text-muted"
+    .d-flex.justify-content-center.align-items-center
+      %h2.font-weight-bolder.mx-3.mb-0.pb-3.border-bottom.border-primary.border-primary-2
+        = t('menu.data_sets')
+        %h2.px-2.mb-0.px-2.mb-0.pb-3
+          = link_to t('menu.links'), links_path, class: "text-muted"
 
+  %hr.mt-0.mb-4
+
+  .container
     .list-group
       = render @data_sets
 
     .d-flex.justify-content-center.mt-3
       = paginate @data_sets
+
+:javascript
+  // 이미지 슬라이드 전 페이지 이동
+  $(".carousel-control-prev").on("click", function() {
+      $('#introSlide').carousel('prev');
+  });
+    // 이미지 슬라이드 다음 페이지 이동
+  $(".carousel-control-next").on("click", function() {
+    $('#introSlide').carousel('next');
+  });
+
+  $(function(){
+    // 이미지 슬라이드 컨트롤를 사용하기 위해서는 carousel를 실행해야한다.
+    $('#introSlide').carousel({
+      interval: 2000,
+      pause: "hover",
+      wrap: true,
+      keyboard : false
+    });
+  });
+
