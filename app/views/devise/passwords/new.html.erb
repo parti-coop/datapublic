@@ -1,19 +1,20 @@
-<section class="py-5">
-  <div class="container">
-    <h2>Forgot your password?</h2>
+<section class="py-3">
+  <div class="form-container">
+    <h2 class="text-center border-bottom py-3 my-4">패스워드 찾기</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="form-inputs">
+      <div class="form-inputs border-bottom pb-3 my-4">
         <%= f.input :email,
                     required: true,
                     autofocus: true,
+                    palceholder: "이메일을 작성해 주세요.",
                     input_html: { autocomplete: "email" } %>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Send me reset password instructions" %>
+      <div class="form-actions my-3">
+        <%= f.button :submit, "이메일로 비밀번호 재설정 하기", class: "btn btn-full-orange btn-full py-2" %>
       </div>
     <% end %>
 

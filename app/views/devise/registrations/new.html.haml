@@ -1,10 +1,9 @@
-%section.py-5
-  .container
-    %h2 가입하기
-
+%section.py-3
+  .form-container
+    %h2.text-center.border-bottom.py-3.my-4  가입하기
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = f.error_notification
-      .form-inputs
+      .form-inputs.border-bottom.py-3.my-4
         = f.input :email,                       |
           required: true,                       |
           autofocus: true,                      |
@@ -23,9 +22,7 @@
         = f.input :password_confirmation,              |
           required: true,                              |
           input_html: { autocomplete: "new-password" } |
-      .form-actions
-        = f.button :submit, "가입하기", class: "btn btn-primary"
-
-    %hr
+      .form-actions.my-5
+        = f.button :submit, "가입하기", class: "btn btn-full-orange btn-full py-2"
 
     = render "devise/shared/links"
