@@ -5,7 +5,7 @@
         = t('menu.posts')
       - if user_signed_in?
         = link_to t('link.new_post'), new_post_path
-
+    %hr.mb-4.mt-0.hr-width-2
     %section
       .row
         - @posts.each do |post|

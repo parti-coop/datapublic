@@ -1,10 +1,10 @@
 - set_tags(og_title: "#{@post.title} - 빠띠 데이터퍼블릭", og_url: post_url(@post), og_image: rails_blob_url(@post.cover))
 .container{ style: 'max-width: 720px;' }
   %section.py-5
-    .mb-2
-      = link_to t('menu.posts'), posts_path, class: 'text-dark'
-      
-    %h2.pb-2.border-bottom= @post.title
+    .mb-0
+      = link_to t('menu.posts'), posts_path, class: 'text-white badge badge-primary'
+
+    %h2.py-3.border-bottom.border-primary-2.border-bottom-dark= @post.title
     - if user_signed_in? && (@post.user == current_user || current_user.admin?)
       %small.py-1
         = link_to t('link.edit'), edit_post_path(@post)
@@ -16,12 +16,12 @@
 
   - if @post.archive.present?
     %section.my-5
-      %h3.pb-2
+      %h3.py-3.mb-4.border-bottom.border-primary-2.border-bottom-dark
         [아카이브]
         = link_to @post.archive.title, @post.archive
       .row
         - @post.archive.posts.each do |post|
-          .col-md-4.col-sm-6.mb-4
+          .col-md-6.col-sm-6.mb-4
             = render post
 
   %section.my-5
