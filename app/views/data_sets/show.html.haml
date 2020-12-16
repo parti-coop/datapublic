@@ -3,18 +3,20 @@
 
 %section.py-5
   .container
-    .mb-2
-      = link_to t('menu.data_sets'), data_sets_path, class: "text-dark"
+    .d-flex.align-items-center
+      .pb-2
+        = link_to t('menu.data_sets'), data_sets_path, class: "text-white badge badge-primary"
+      %h2.pb-2.pl-2= @data_set.title
 
-    %h2.pb-2= @data_set.title
+    %hr.mb-4.mt-0.hr-width-2
 
     .bg-white.my-4
       %table.table.table-bordered
         %tr
-          %th= DataSet.human_attribute_name("publisher")
+          %th.bg-gray-1= DataSet.human_attribute_name("publisher")
           %td.overflow-hidden= @data_set.publisher
         %tr
-          %th= DataSet.human_attribute_name("url")
+          %th.bg-gray-1= DataSet.human_attribute_name("url")
           %td.overflow-hidden= link_to @data_set.url, @data_set.url, class: "text-dark"
         - if @data_set.api_url.present?
           %tr
@@ -45,44 +47,48 @@
             %th= DataSet.human_attribute_name("memo")
             %td= simple_format @data_set.memo
 
-    %h4.text-muted= DataSet.human_attribute_name("body")
-    .my-4.p-3.border.bg-white
+    %h3.text-muted= DataSet.human_attribute_name("body")
+    %hr.mb-4.mt-0.hr-style-3
+    .my-4.p-3.bg-white
       = raw @data_set.body
 
     .my-4
-      %h5.text-muted= DataSet.human_attribute_name("tags")
+      %h3.text-muted= DataSet.human_attribute_name("tags")
+      %hr.mb-4.mt-0.hr-style-3
       - @data_set.tags.each do |tag|
-        = link_to tag, tag_path(tag), class: 'btn btn-outline-secondary btn-sm mr-2 mb-2'
+        = link_to tag, tag_path(tag), class: 'btn btn-outline-gray-2 btn-sm mr-2 mb-2'
 
     - if @data_set.links.any?
       .my-4
-        %h5.text-muted= DataSet.human_attribute_name("links")
+        %h3.text-muted= DataSet.human_attribute_name("links")
+        %hr.mb-4.mt-0.hr-style-3
         .list-group
           - @data_set.links.each do |link|
             = link_to link.url, class: "list-group-item" do
               %h6.text-muted.mb-1= link.title
               %p.text-muted.mb-1= link.body
 
+
     .my-4
-      .d-flex.justify-content-between
+      .d-flex
         %div
           - if user_signed_in?
             = link_to t('link.edit'), edit_data_set_path(@data_set), class: "btn btn-outline-primary"
         %div
           - if user_signed_in? && (@data_set.user == current_user || current_user.admin?)
-            = link_to t('link.destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger"
-
-    %hr
+            = link_to t('link.destroy'), @data_set, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger ml-2"
 
     .my-4
-      %h5.text-muted= DataSet.human_attribute_name("comments")
-      .my-4.p-4.border.bg-white
-        = link_to "데이터에 관한 의견이 있으세요?", "https://democracy-activists.parti.xyz/p/data_activists", target: "_blank", class: "text-dark"
+      .my-4.p-4.border.bg-cyan-2.text-white.d-flex.align-items-center.justify-content-center
+        %span.font-weight-bolder.pr-3
+          데이터에 관한 의견이 있으세요?
+        빠띠 커뮤니티에서 서로 의견을 나눠보세요.
+        = link_to "바로가기", "https://democracy-activists.parti.xyz/p/data_activists", target: "_blank", class: "btn btn-white text-info ml-3"
 
-    %hr
+    %hr.mb-4.mt-0.hr-style-3
 
-    .my-4
+    .my-4.text-center
       - if @archive
-        = link_to '아카이브로 돌아가기', @archive, class: 'btn btn-outline-primary'
+        = link_to '아카이브로 돌아가기', @archive, class: 'btn btn-outline-primary py-3 px-5'
       - else
         = link_to '목록으로 돌아가기', data_sets_path, class: 'btn btn-outline-primary'

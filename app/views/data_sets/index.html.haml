@@ -1,17 +1,18 @@
 %section.py-5
   .container
-    .d-flex.justify-content-between.align-items-center
-      %h2.pb-2
+    .d-flex.justify-content-center.align-items-center
+      %h2.font-weight-bolder.mx-3.mb-0.pb-3.border-bottom.border-primary.border-primary-2
         = t('menu.data_sets')
         - if params[:q].present?
           = "'#{params[:q]}'"
-        %small
+        %h2.px-2.mb-0.px-2.mb-0.pb-3
           = link_to t('menu.links'), links_path, class: "text-muted"
-      - if user_signed_in?
-        = link_to t('link.new_data_set'), new_data_set_path
-
+  %hr.mt-0.mb-4
+  .container
+    - if user_signed_in?
+      = link_to t('link.new_data_set'), new_data_set_path
     .list-group.mb-2
       = render @data_sets
 
-    .d-flex.justify-content-center
+    .d-flex.justify-content-center.mt-4
       = paginate @data_sets

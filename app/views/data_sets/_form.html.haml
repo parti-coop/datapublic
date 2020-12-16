@@ -15,12 +15,14 @@
     = f.label :tag_list
     = f.text_field :tag_list, value: f.object.tags.join(', '), class: 'form-control string optional'
 
-  #data-set-links.pb-4
-    %h5.text-muted= t("related_info")
+  #data-set-links
     #links-items
       = f.simple_fields_for :links do |link|
         = render 'link_fields', f: link
-    = link_to_add_association '항목 추가', f, :links, class: "btn btn-outline-secondary", data: {"association-insertion-node" => "#links-items", "association-insertion-method" => "append"}
+    = link_to_add_association '관련정보 항목 추가 +', f, :links, class: "btn btn-outline-primary btn-full", data: {"association-insertion-node" => "#links-items", "association-insertion-method" => "append"}
 
-  = f.submit data: { disable_with: "Please wait..." }, class: 'btn btn-primary mr-2'
-  = link_to '취소', @archive
+  %hr.hr-width-2.my-5
+
+  .d-flex.mb-3.align-items-center.justify-content-between
+    = link_to '취소', @archive, class: "btn btn-outline-gray-3 btn-flex-harf mb-4"
+    = f.submit data: { disable_with: "Please wait..." }, class: 'btn btn-full-orange mr-2 btn-flex-harf mb-4'

@@ -1,5 +1,7 @@
-.nested-fields.border.bg-white.p-4.my-4
+.nested-fields.border.bg-gray-1.p-4.my-4
   = f.input :title
   = f.input :url
   = f.input :body
-  = link_to_remove_association "항목 삭제", f
+  %hr.hr-width-2.my-4
+  .d-flex.flex-row-reverse
+    = link_to_remove_association "삭제하기", f, class:"btn-outline-gray-3 py-2 px-4 text-dark"
