@@ -1,16 +1,24 @@
 - set_tags(og_title: "#{@archive.title} 아카이브 - 빠띠 데이터퍼블릭", og_url: archive_link(@archive), og_image: rails_blob_url(@archive.cover))
 = render "cover", archive: @archive
 
+.container
+  - if user_signed_in?
+    %p.lead.py-3
+      = link_to t('link.edit'), edit_archive_path, class: "btn btn-outline-primary"
+      = link_to t('link.destroy'), @archive, method: :delete, data: { confirm: "정말 삭제하시겠습니까?" }, class: "btn btn-outline-danger ml-2"
+
 %section.py-5
   .container
-    %h2.pb-2
+    %h3.pb-2
       설명
+    %hr.mb-4.mt-0.hr-width-2
     %p.lead= raw @archive.body
 
 %section.my-5
   .container
     %h3.pb-2
       = t('menu.posts')
+    %hr.mb-4.mt-0.hr-width-2
     .row
       - @archive.posts.each do |post|
         .col-md-4.col-sm-6.mb-4
@@ -23,7 +31,7 @@
         = t('menu.data_sets')
       %small
         = link_to t('link.new_data_set'), new_data_set_path(archive: @archive)
-
+    %hr.mb-4.mt-0.hr-width-2
     .list-group
       = render @data_sets
 

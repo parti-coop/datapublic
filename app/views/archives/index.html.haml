@@ -6,7 +6,7 @@
       %small
         - if user_signed_in?
           = link_to t('link.new_archive'), new_archive_path
-
+    %hr.mb-4.mt-0.hr-width-2
     %section
       .row
         - @archives.each do |archive|
