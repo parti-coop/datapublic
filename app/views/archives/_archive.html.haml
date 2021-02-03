@@ -2,7 +2,7 @@
   = link_to archive_link(archive) do
     - if archive.cover.attached?
       .card-image
-        = image_tag archive.cover
+        = image_tag archive.cover, onerror: 'this.error=null;this.src=\'' + asset_path('logo.png') + '\'', loading: 'lazy'
         .badge.badge-primary= t('menu.archives')
       .card-body.p-0.py-2
       %h4.card-title.font-weight-bolder.text-center.text-dark

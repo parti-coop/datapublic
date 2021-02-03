@@ -2,6 +2,6 @@
   = link_to post do
     - if post.cover.attached?
       .card-image
-        = image_tag post.cover
+        = image_tag post.cover, onerror: 'this.onerror=null;this.src=\''+ asset_path("logo.png") +'\';', loading: 'lazy'
       .card-body.p-0.py-3
         %h5.card-title.text-dark= post.title
