@@ -309,6 +309,12 @@ footer{
   }
 }
 
+.card-body {
+  .card-title {
+    line-height: 180%;
+  }
+}
+
 .card-columns {
   @include media-breakpoint-only(sm) {
     column-count: 2;
