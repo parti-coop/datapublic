@@ -15,7 +15,7 @@
         = raw @post.body
 
   - if @post.archive.present?
-    %section.my-5
+    %section
       %h3.py-3.mb-4.border-bottom.border-primary-2.border-bottom-dark
         [아카이브]
         = link_to @post.archive.title, @post.archive
