@@ -14,10 +14,13 @@
     %hr.mb-4.mt-0.hr-width-2
     %p.lead= raw @archive.body
 
-%section.my-5
+%section.py-5
   .container
-    %h3.pb-2
-      = t('menu.posts')
+    .d-flex.justify-content-between.align-items-center
+      %h3.pb-2
+        = t('menu.posts')
+      %small
+        = link_to t('link.new_post'), new_post_path(archive: @archive), class: "btn btn-outline-primary"
     %hr.mb-4.mt-0.hr-width-2
     .row
       - @archive.posts.each do |post|

@@ -14,7 +14,12 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    if params[:archive]
+      @archive = Archive.find(params[:archive])
+      @post = @archive.posts.build
+    else
+      @post = Post.new
+    end
   end
 
   # GET /posts/1/edit
