@@ -38,6 +38,15 @@
     .list-group
       = render @data_sets
 
+- if @links.present?
+  %section.py-5
+    .container
+      %h3.pb-2
+        = t('menu.links')
+      %hr.mb-4.mt-0.hr-width-2
+      .list-group
+        = render @links
+
 - if @archive.publisher.present?
   %section.py-5
     .container

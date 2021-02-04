@@ -22,6 +22,7 @@ class ArchivesController < ApplicationController
 
   def show
     @data_sets = @archive.data_sets
+    @links = Link.where(data_set: @data_sets)
   end
 
   def update
