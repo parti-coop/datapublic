@@ -338,8 +338,14 @@ footer{
   }
 
   a{
-    margin: 0 1rem;
     color: #ffffff !important;
+  }
+
+  h4 {
+    text-decoration: none;
+    span {
+      margin: 0 1rem;
+    }
   }
 }
 
