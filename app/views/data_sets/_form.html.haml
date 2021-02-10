@@ -19,7 +19,7 @@
     #links-items
       = f.simple_fields_for :links do |link|
         = render 'link_fields', f: link
-    = link_to_add_association '관련정보 항목 추가 +', f, :links, class: "btn btn-outline-primary btn-full", data: {"association-insertion-node" => "#links-items", "association-insertion-method" => "append"}
+    = link_to_add_association '활용사례 추가 +', f, :links, class: "btn btn-outline-primary btn-full", data: {"association-insertion-node" => "#links-items", "association-insertion-method" => "append"}
 
   %hr.hr-width-2.my-5
 
