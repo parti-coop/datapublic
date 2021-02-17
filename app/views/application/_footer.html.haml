@@ -15,7 +15,7 @@
       .d-flex.mb-3.align-items-center
         = image_tag 'parti_symbol_new.png', width: 30, class: "mr-2"
         %h4.m-0
-          = link_to '빠띠 데이터 활동가 그룹', "https://democracy-activists.parti.xyz/p/data_activists", target: "_blank", class: "text-dark font-weight-bold"
-          %small= link_to "시민 주도로 모두의 데이터를 만듭니다", "https://democracy-activists.parti.xyz/p/data_activists", target: "_blank", class: "text-dark"
-
-
+          = link_to "https://democracy-activists.parti.xyz/p/data_activists", target: "_blank", class: "text-dark font-weight-bold" do
+            %span.font-weight-bold 빠띠 데이터 활동가 그룹
+            %small
+              %span 서민 주도로 모두의 데이터를 만듭니다

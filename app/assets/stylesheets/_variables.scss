@@ -44,6 +44,7 @@ $grays: map-merge(
 
 $blue:    #007bff !default;
 $violet:  #4d1b9b !default;
+$violet-2: #4d1b9d !default;
 $violet-4: #6624d1 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
@@ -62,6 +63,7 @@ $colors: map-merge(
   (
     "blue":       $blue,
     "violet":     $violet,
+    "violet-2":   $violet-2,
     "violet-4":   $violet-4,
     "indigo":     $indigo,
     "purple":     $purple,
