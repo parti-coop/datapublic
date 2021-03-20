@@ -18,7 +18,7 @@ var initializeSummernote = function() {
       ],
       height: 500,
       lang: 'ko-KR',
-      fontNames: ['Noto Sans Korean', 'Nanum Myeongjo', 'Nanum Gothic', 'Malgun Gothic', 'gulim', 'Batang','Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
+      fontNames: ['Noto Sans Korean'],
       fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '20', '24', '36', '48', '64', '82'],
       fontNamesIgnoreCheck: ['Noto Sans Korean', 'Nanum Myeongjo', 'Nanum Gothic', 'Malgun Gothic', 'gulim', 'Batang'],
       insertTableMaxSize: {
