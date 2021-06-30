@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post_og = OGP::OpenGraph.new(Net::HTTP.get_response(URI(@post.preview_link))&.body)&.data if @post.preview_link
   end
 
   # GET /posts/new
@@ -75,6 +76,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:archive_id, :title, :cover, :body)
+      params.require(:post).permit(:archive_id, :title, :cover, :body, :preview_link)
     end
 end

@@ -13,6 +13,13 @@
     .my-4
       .body-content
         = raw @post.body
+      - if @post_og
+        .row
+          = @post_og['title']
+        .row
+          = @post_og['description']
+        .row
+          = image_tag @post_og['image']
 
   - if @post.archive.present?
     %section
