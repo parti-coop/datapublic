@@ -1039,6 +1039,9 @@ GEM
     erubis (2.7.0)
     et-orbi (1.2.2)
       tzinfo
+    exception_notification (4.4.3)
+      actionmailer (>= 4.0, < 7)
+      activesupport (>= 4.0, < 7)
     execjs (2.7.0)
     faker (1.7.3)
       i18n (~> 0.5)
@@ -1225,6 +1228,7 @@ GEM
     simple_form (5.0.1)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    slack-notifier (2.4.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -1296,6 +1300,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
+  exception_notification (~> 4.4)
   faker (~> 1.7.3)
   haml-rails (~> 1.0)
   health_check
@@ -1323,6 +1328,7 @@ DEPENDENCIES
   sidekiq-cron (~> 1.0, >= 1.0.4)
   sidekiq-unique-jobs (~> 4.0, >= 4.0.16)
   simple_form
+  slack-notifier (~> 2.4)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
