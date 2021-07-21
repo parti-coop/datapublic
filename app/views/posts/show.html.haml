@@ -13,13 +13,15 @@
     .my-4
       .body-content
         = raw @post.body
-      - if @post_og
-        .row
-          = @post_og['title']
-        .row
-          = @post_og['description']
-        .row
-          = image_tag @post_og['image']
+    - if @preview_link.present?
+      = link_to @preview_link.url do
+        .preview-link-card{ style: "display: block; width: 438px; max-width: 100%; border-radius: .85714em; border: 1px solid #e1e8ed; overflow: hidden; line-height: 1.3em;" }
+          .card-cover-image{ style: "background-image: url(#{@preview_link.image}); background-size: cover; height: 220px; border-bottom: 1px solid #e1e8ed;" }
+          .card-meta{ style: "box-sizing: border-box; padding: .75em; text-decoration: none;"}
+            .card-meta-title{ style: "display: block; border-collapse: separate; text-align: left; word-wrap: break-word;" }
+              = @preview_link.title
+            .card-meta-description{ style: "max-height: 2.6em; margin-top: .32333em; overflow: hidden" }
+              = @preview_link.description
 
   - if @post.archive.present?
     %section

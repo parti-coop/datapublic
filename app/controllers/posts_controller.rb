@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @post_og = OGP::OpenGraph.new(Net::HTTP.get_response(URI(@post.preview_link))&.body)&.data if @post.preview_link
+    @preview_link = PreviewLink.find_by_url(@post.preview_link)
   end
 
   # GET /posts/new
@@ -47,6 +47,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    CrawlingJob.perform_later(@post.preview_link) if @post.preview_link
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }

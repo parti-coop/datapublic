@@ -1,0 +1,2 @@
+class PreviewLink < ApplicationRecord
+end
