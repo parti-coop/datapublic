@@ -54,6 +54,10 @@ end
 #gem 'wicked_pdf'
 #gem 'wkhtmltopdf-binary'
 
+# open graph
+gem 'ogp', '~> 0.4.0'
+gem 'faraday', '~> 0.9.2'
+
 # excel
 gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'

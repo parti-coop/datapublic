@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @preview_link = PreviewLink.find_by_url(@post.preview_link)
   end
 
   # GET /posts/new
@@ -46,6 +47,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    CrawlingJob.perform_later(@post.preview_link) if @post.preview_link
+
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -75,6 +78,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:archive_id, :title, :cover, :body)
+      params.require(:post).permit(:archive_id, :title, :cover, :body, :preview_link)
     end
 end

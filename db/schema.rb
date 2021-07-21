@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_105613) do
+ActiveRecord::Schema.define(version: 2021_07_17_054410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,8 +92,18 @@ ActiveRecord::Schema.define(version: 2020_11_16_105613) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "archive_id"
+    t.string "preview_link"
     t.index ["archive_id"], name: "index_posts_on_archive_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "preview_links", force: :cascade do |t|
+    t.string "url"
+    t.string "title"
+    t.text "description"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "rumors", force: :cascade do |t|
