@@ -8,12 +8,12 @@ namespace :sewol do
       archive = Archive.create!(title: "세월호 아카이브", body: "세월호 아카이브", 
         user: user, slug: "sewolarchive", publisher: "사회적협동조합 빠띠")
 
+      count = 1
       CSV.foreach('tmp/archive_documents.csv', headers: true) do |row|
         puts "================="
         puts "row: #{row.inspect}"
-# <CSV::Row "comments_count":"0" "likes_count":"0" "content_created_time":"8:52" "content_source":"소방방재청" "content":"ac34273725.wav" "content_name":"08시52분_119소방_학생_익명.wav" "content_type":"audio/x-wav" "content_size":"3081990" "created_at":"2017-02-22 23:19:49 +0900" "updated_at":"2017-02-22 23:19:49 +0900" "category_slug":"voices-victim" "media_type":"음성" "content_created_date":"20140416" "content_recipients":nil "donor":"국회 세월호 국정조사 특위" "is_secret_donor":"false" "tag_list":nil
-        
-        dataset = DataSet.new(
+
+        dataset = DataSet.create!(
           title: row['title'], body: row['body'],
           user: user, 
           created_at: row['created_at'],
@@ -23,13 +23,31 @@ namespace :sewol do
           publisher: row['content_creator'],
         )
 
-        SewolDataDetail
+        sewoldata = SewolDataDetail.create!(
+          content_created_time: row['content_created_time'],
+          content_source:	row['content_source'],
+          content: row['content'],
+          content_name: row['content_name'],
+          content_type: row['content_type'],
+          content_size: row['content_size'],
+          category_slug: row['category_slug'],
+          media_type: row['media_type'],
+          content_created_date: row['content_created_date'], 
+          content_recipients: row['content_recipients'],
+          donor: row['donor'],
+          is_secret_donor: row['is_secret_donor'], 
+          data_set_id: dataset
+        )
 
         # 외부DataDetail
         # NgoDataDetail...........
+        print '.'
+        puts if count > 80
+        count = count + 1
+        break if count > 300
 
-        puts "dataset: #{dataset.inspect}"
-        raise "OK!"
+        # puts "dataset: #{dataset.inspect}"
+        # puts "sewoldatadetail: #{sewoldata.inspect}"
       end
     end
   end
