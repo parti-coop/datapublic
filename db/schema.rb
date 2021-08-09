@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_16_105613) do
+ActiveRecord::Schema.define(version: 2021_08_07_020807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,25 @@ ActiveRecord::Schema.define(version: 2020_11_16_105613) do
     t.index ["user_id"], name: "index_rumors_on_user_id"
   end
 
+  create_table "sewol_data_details", force: :cascade do |t|
+    t.string "content"
+    t.string "content_name"
+    t.string "content_type"
+    t.integer "content_size"
+    t.string "media_type"
+    t.string "category_slug"
+    t.string "content_source"
+    t.string "content_recipients"
+    t.string "donor"
+    t.boolean "is_secret_donor"
+    t.string "content_created_date"
+    t.string "content_created_time"
+    t.bigint "data_set_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["data_set_id"], name: "index_sewol_data_details_on_data_set_id"
+  end
+
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
@@ -170,5 +189,6 @@ ActiveRecord::Schema.define(version: 2020_11_16_105613) do
   add_foreign_key "posts", "archives"
   add_foreign_key "posts", "users"
   add_foreign_key "rumors", "users"
+  add_foreign_key "sewol_data_details", "data_sets"
   add_foreign_key "taggings", "tags"
 end
