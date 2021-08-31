@@ -1,3 +1,5 @@
+<!-- 새로 가입한 사용자가 업로드한 아카이브 소식이 화면에 노출되지 않는 오류 --> 
+
 - set_tags(og_title: "#{@archive.title} 아카이브 - 빠띠 데이터퍼블릭", og_url: archive_link(@archive), og_image: rails_blob_url(@archive.cover))
 = render "cover", archive: @archive
 
