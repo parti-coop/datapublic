@@ -41,7 +41,11 @@ class ArchivesController < ApplicationController
   private
 
   def set_archive
-    @archive = Archive.find(params[:id])
+    begin 
+      @archive = Archive.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      render_404
+    end
   end
 
   def archive_params
