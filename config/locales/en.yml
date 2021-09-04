@@ -30,6 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    errors:
+      messages:
+        attached: is not attached
   hello: "Hello world"
   main:
     title: Datasets
