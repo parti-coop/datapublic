@@ -8,7 +8,7 @@ class Archive < ApplicationRecord
   validates :slug, presence: true, format: {
     with: %r{\A[a-z](?:[a-z0-9-]*[a-z0-9])?\z}i, message: "not a valid subdomain"
   }, length: { in: 1..63 }
-  validates :cover, presence: true
+  validates :cover, attached: true
   validates :title, presence: true
   validates :body, presence: true
 end
