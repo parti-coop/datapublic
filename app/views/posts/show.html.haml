@@ -1,4 +1,4 @@
-- set_tags(og_title: "#{@post.title} - 빠띠 데이터퍼블릭", og_url: post_url(@post), og_image: rails_blob_url(@post.cover))
+- set_tags(og_title: "#{@post.title} - 빠띠 데이터퍼블릭", og_url: post_url(@post), og_image: (@post.cover.attached? ? rails_blob_url(@post.cover) : image_path('logo.png')))
 .container{ style: 'max-width: 720px;' }
   %section.py-5
     .mb-0
