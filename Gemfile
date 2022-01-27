@@ -59,7 +59,7 @@ gem 'axlsx', '2.1.0.pre'
 gem 'axlsx_rails'
 
 # jobs
-gem 'sidekiq', '~> 4.1'
+gem 'sidekiq', '~> 5.2'
 gem 'sidekiq-cron', '~> 1.0', '>= 1.0.4'
 gem 'redis', '~> 3.2', '>= 3.2.2'
 gem 'redis-namespace', '~> 1.5', '>= 1.5.2'
